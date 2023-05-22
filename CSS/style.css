@@ -22,6 +22,11 @@
 /* End signUP Page */
 
 /* Start E-test Page */
+header .header__container div .EnglishTest__Logo{
+    width: 400px;
+    border: 1px solid;
+}
+
 /* End E-test Page */
 
 /* Start M_test Page */
