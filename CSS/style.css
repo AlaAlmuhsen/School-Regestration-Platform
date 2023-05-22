@@ -1,0 +1,36 @@
+:root {
+    --main-color : #FF6551;
+    --second-color : #B5B5B5;
+    --third-color : #F1EFEF;
+
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Start Main Page */
+/* End Main Page */
+
+/* Start signin Page */
+/* End signin Page */
+
+/* Start signUp Page */
+/* End signUP Page */
+
+/* Start E-test Page */
+/* End E-test Page */
+
+/* Start M_test Page */
+/* End M-test Page */
+
+/* Start infoform Page */
+/* End infoform Page */
+
+
+
+
+
