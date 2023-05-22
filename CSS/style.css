@@ -23,8 +23,7 @@
 
 /* Start E-test Page */
 header .header__container div .EnglishTest__Logo{
-    width: 400px;
-    border: 1px solid;
+    width: 100%;
 }
 
 /* End E-test Page */
