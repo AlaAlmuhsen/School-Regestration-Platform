@@ -16,6 +16,20 @@
 /* End Main Page */
 
 /* Start signin Page */
+.signin-btn{
+    background-color: var(--main-color);
+    border: none;
+}
+
+.signin-btn:hover{
+    background-color: var(--second-color);
+
+}
+
+.signin-btn:click{
+    background-color: var(--second-color);
+
+}
 /* End signin Page */
 
 /* Start signUp Page */
