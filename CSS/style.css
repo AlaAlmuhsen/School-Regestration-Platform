@@ -1,14 +1,8 @@
 :root {
-<<<<<<< HEAD
-  --main-color: #ff6551;
-  --second-color: #b5b5b5;
-  --third-color: #f1efef;
-=======
     --main-color : #ff6551;
     --second-color : #B5B5B5;
     --third-color : #F1EFEF;
 
->>>>>>> f5b504b830fe0c7d4bfce4e3563ce7c7db9ae451
 }
 * {
   box-sizing: border-box;
@@ -68,10 +62,6 @@
 /* End signUP Page */
 
 /* Start E-test Page */
-<<<<<<< HEAD
-header .header__container div .EnglishTest__Logo {
-  width: 100%;
-=======
 header .header__container div .EnglishTest__Logo{
     width: 90%;
     
@@ -166,7 +156,6 @@ header .header__container div{
     -o-border-radius: 0px;
 }
 
->>>>>>> f5b504b830fe0c7d4bfce4e3563ce7c7db9ae451
 }
 
 /* End E-test Page */
