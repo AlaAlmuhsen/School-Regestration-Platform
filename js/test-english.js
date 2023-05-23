@@ -11,9 +11,11 @@ function changeSignOutIcon(){
     }
     
 }
+
 window.addEventListener("resize", function(){
-    changeSignOutIcon()
+  changeSignOutIcon()
 });
+
 let questions = [
     {
       question: "Which sentence contains a subject-verb agreement error?",
@@ -287,11 +289,11 @@ console.log(questions)
 counter=0;
 seconds=60*10;
 userAnswers=[]
-
 //choseAnswer: save the the user answers in an Array(userAnswers).
 function chooseAnswer(button){
     index = parseInt(button.parentNode.parentNode.id);
     userAnswers[index]=button.value;
+    localStorage.setItem("userAnswers",userAnswers);
     console.log(button.value)
 }
 
@@ -304,19 +306,19 @@ function getQuestion(value){
     <div class="options d-flex flex-column gap-1 w-100" id="${counter}">
         <div class="option w-75 mx-auto">
             <input class="option" type="radio" name="option" id="option1" value="${value.options[0]}" onclick="chooseAnswer(this)">
-            <label class="option__label ps-3 py-2" for="option1">${value.options[0]}</label>
+            <label class="option__label ps-3 py-2" for="option1"><span style="font-weight:bold;">A.</span> ${value.options[0]}</label>
         </div>
         <div class="option w-75 mx-auto">
             <input class="option" type="radio" name="option" id="option2" value="${value.options[1]}" onclick="chooseAnswer(this)">
-            <label class="option__label ps-3 py-2" for="option2">${value.options[1]}</label>
+            <label class="option__label ps-3 py-2" for="option2"><span style="font-weight:bold;">B.</span> ${value.options[1]}</label>
         </div>
         <div class="option w-75 mx-auto">
             <input class="option" type="radio" name="option" id="option3" value="${value.options[2]}" onclick="chooseAnswer(this)">
-            <label class="option__label ps-3 py-2" for="option3">${value.options[2]}</label>
+            <label class="option__label ps-3 py-2" for="option3"><span style="font-weight:bold;">C.</span> ${value.options[2]}</label>
         </div>
         <div class="option w-75 mx-auto">
             <input class="option" type="radio" name="option" id="option4" value="${value.options[3]}" onclick="chooseAnswer(this)">
-            <label class="option__label ps-3 py-2" for="option4">${value.options[3]}</label>
+            <label class="option__label ps-3 py-2" for="option4"><span style="font-weight:bold;">D.</span> ${value.options[3]}</label>
         </div>
     </div>
 </div>
@@ -361,7 +363,11 @@ questionScreen[counter].style.color="white";
 
 //startButton: Starts the quiz.
 startButton.addEventListener("click",function(){
+    if(localStorage.getItem("userFinishEnglishTest")){
+      finish();
+    }else{
 
+    
     getQuestion(questions[0]);
 
     //updateTimer: Start a timer when the quiz is started and force the quiz to finish when it ends.
@@ -378,7 +384,7 @@ startButton.addEventListener("click",function(){
         }
         }
     const interval = setInterval(updateTimer, 1000)
-    function changeSignOutIcon(){
+    function changeNextPrevIcon(){
         let previousButton=document.getElementById("prev-button");
         let nextButton=document.getElementById("next-button");
         if (screen.width < 576){
@@ -391,13 +397,11 @@ startButton.addEventListener("click",function(){
         
     }
     window.addEventListener("resize", function(){
-        changeSignOutIcon()
+       changeNextPrevIcon()
     });
 
-    window.onbeforeunload = function() {
-        return "Do you really want to leave our brilliant application?";
 
-    }
+  }
 })
 
 //nextQuestions(called by the next button): Display the next question for the user as long as it's not the last question.
@@ -408,28 +412,28 @@ function nextQuestions(){
         testContainer.innerHTML=`<div class="question__container container-fluid mt-1 px-5">
         <h2 class="text-center pb-5 pt-3 text-white">Are you sure you want to finish?</h2>
     </div>
-        <div class="nav__buttons d-flex justify-content-around flex-wrap my-3 w-75 mx-auto">
-            <button class="previous__button btn mt-3" id="prev-button" onclick="previousQuestions()">Previous</button>
-            <div class="questions__nav col-5 d-flex justify-content-center align-content-center gap-1 mt-4">
-                <div class="question__screen" onclick="displayQuestion(this)">1</div>
-                <div class="question__screen" onclick="displayQuestion(this)">2</div>
-                <div class="question__screen" onclick="displayQuestion(this)">3</div>
-                <div class="question__screen" onclick="displayQuestion(this)">4</div>
-                <div class="question__screen" onclick="displayQuestion(this)">5</div>
-                <div class="question__screen" onclick="displayQuestion(this)">6</div>
-                <div class="question__screen" onclick="displayQuestion(this)">7</div>
-                <div class="question__screen" onclick="displayQuestion(this)">8</div>
-                <div class="question__screen" onclick="displayQuestion(this)">9</div>
-                <div class="question__screen" onclick="displayQuestion(this)">10</div>
-                <div class="question__screen" onclick="displayQuestion(this)">11</div>
-                <div class="question__screen" onclick="displayQuestion(this)">12</div>
-                <div class="question__screen" onclick="displayQuestion(this)">13</div>
-                <div class="question__screen" onclick="displayQuestion(this)">14</div>
-                <div class="question__screen" onclick="displayQuestion(this)">15</div>
-            </div>
-            <button class="next__button btn mt-3" id="next-button" onclick="finish()">Finish</button>
-    
-        </div>`;
+    <div class="nav__buttons d-flex justify-content-around flex-wrap my-3 w-75 mx-auto">
+        <button class="previous__button btn mt-3" id="prev-button" onclick="previousQuestions()">Previous</button>
+        <div class="questions__nav col-5 d-flex flex-wrap justify-content-center align-content-center gap-1 mt-4">
+            <div class="question__screen" onclick="displayQuestion(this)">1</div>
+            <div class="question__screen" onclick="displayQuestion(this)">2</div>
+            <div class="question__screen" onclick="displayQuestion(this)">3</div>
+            <div class="question__screen" onclick="displayQuestion(this)">4</div>
+            <div class="question__screen" onclick="displayQuestion(this)">5</div>
+            <div class="question__screen" onclick="displayQuestion(this)">6</div>
+            <div class="question__screen" onclick="displayQuestion(this)">7</div>
+            <div class="question__screen" onclick="displayQuestion(this)">8</div>
+            <div class="question__screen" onclick="displayQuestion(this)">9</div>
+            <div class="question__screen" onclick="displayQuestion(this)">10</div>
+            <div class="question__screen" onclick="displayQuestion(this)">11</div>
+            <div class="question__screen" onclick="displayQuestion(this)">12</div>
+            <div class="question__screen" onclick="displayQuestion(this)">13</div>
+            <div class="question__screen" onclick="displayQuestion(this)">14</div>
+            <div class="question__screen" onclick="displayQuestion(this)">15</div>
+        </div>
+        <button class="finish__button btn mt-3" id="finish-button" onclick="finish()">Finish</button>
+
+    </div>`;
     }else{
         counter++;
         getQuestion(questions[counter])
@@ -450,26 +454,26 @@ function previousQuestions(){
 //finish (called by the finish button or when the timer ends): Display the user score and finish the quiz.
 function finish(){
     score=0
-    seconds=0
-    for(let i in userAnswers){
-        if(userAnswers[i]==questions[i].options[questions[i].answer]){
+    if(!localStorage.getItem("userFinishEnglishTest")){
+    let answers=localStorage.getItem("userAnswers").split(",");
+    for(let i in answers){
+        if(answers[i]==questions[i].options[questions[i].answer]){
             score++
         }
 
     }
+    localStorage.setItem("userScore", score)
+    localStorage.setItem("userFinishEnglishTest",true);
+  }
     testContainer.innerHTML=`<div class="question__container container-fluid mt-1 px-5">
-    <h2 class="text-center pb-5 pt-3 text-white">You scored ${score} out of 15</h2>
+    <h2 class="text-center pb-5 pt-3 text-white">You scored ${localStorage.getItem("userScore")} out of 15</h2>
 </div>
 <div class="rtn__button__container d-flex w-100 justify-content-center">
 <button class="return__button my-3" id="start-button"><a href="index.html">RETURN</a></button>
 
 </div>`;
-
-window.onbeforeunload = function() {
-    return "Do you really want to leave our brilliant application?";
-    
-}
-
+  timerContainer.innerHTML="";
+  
 }
 //displayQuestion (called by the question navigator): Display the question to the user based on the number chosen.
 function displayQuestion(button){

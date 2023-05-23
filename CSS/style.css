@@ -167,17 +167,6 @@ header .header__container div .EnglishTest__Logo{
 }
 
 .option__label{
-<<<<<<< HEAD
- width: 100%;
- font-size: 100%;
- background-color: var(--third-color);
- border-radius: 50px;
- -webkit-border-radius: 50px;
- -moz-border-radius: 50px;
- -ms-border-radius: 50px;
- -o-border-radius: 50px;
- cursor: pointer;
-=======
     width: 100%;
     background-color: var(--third-color);
     border-radius: 50px;
@@ -186,7 +175,6 @@ header .header__container div .EnglishTest__Logo{
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
     cursor: pointer;
->>>>>>> ec6b3a45694a6617928a10e27ae02c8d6a6ce32b
 }
 .options .option input:checked~.option__label{
     background-color: var(--main-color);
