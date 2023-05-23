@@ -43,6 +43,20 @@
 /* End Main Page */
 
 /* Start signin Page */
+.signin-btn{
+    background-color: var(--main-color);
+    border: none;
+}
+
+.signin-btn:hover{
+    background-color: var(--second-color);
+
+}
+
+.signin-btn:click{
+    background-color: var(--second-color);
+
+}
 /* End signin Page */
 
 /* Start signUp Page */
@@ -50,7 +64,99 @@
 
 /* Start E-test Page */
 header .header__container div .EnglishTest__Logo{
-    width: 100%;
+    width: 90%;
+    
+}
+
+.signup__container{
+    position: relative;
+    right: 5%;
+    margin-top: 25px;
+    margin-bottom: -6%;
+}
+.signup__container .signup__button{
+    width: 5%;
+    min-width: 50px;
+    font-size: 0.7em;
+    height: 30px;
+    background-color: var(--main-color);
+    border: 0;
+    color: white;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.timer__container .timer{
+    color: var(--main-color);
+    font-weight: bold;
+    margin-right: 10%;
+    border: 1px solid var(--main-color);
+    margin-top: -1%;
+}
+.test__title h1{
+    color: var(--main-color);
+
+}
+.question__container{
+    background-color: var(--main-color);
+}
+.options__container{
+    border: 1px solid var(--second-color);
+    margin-top: -30px;
+    display: flex;
+    padding-bottom: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.option__label{
+ width: 100%;
+ background-color: var(--third-color);
+ border-radius: 50px;
+ -webkit-border-radius: 50px;
+ -moz-border-radius: 50px;
+ -ms-border-radius: 50px;
+ -o-border-radius: 50px;
+ cursor: pointer;
+}
+.options .option input:checked~.option__label{
+    background-color: var(--main-color);
+    color: white;
+    
+}
+.options .option input{
+    appearance: none;
+}
+
+@media screen and (max-width:576px) {
+.horizontal__line{
+    display: none;
+    border: 1px solid;
+}
+header .header__container div{
+    width: 150px;
+    margin: 0 auto;
+}
+.timer__container .timer{
+    margin: 0 auto;
+}
+.test__title h1{
+    margin-top: 10%;
+}
+.signup__container .signup__button{
+    min-width: 35px;
+}
+.options__container{
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+}
+
 }
 
 /* End E-test Page */
