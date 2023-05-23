@@ -117,6 +117,7 @@ header .header__container div .EnglishTest__Logo{
 
 .option__label{
  width: 100%;
+ font-size: 100%;
  background-color: var(--third-color);
  border-radius: 50px;
  -webkit-border-radius: 50px;
@@ -133,7 +134,83 @@ header .header__container div .EnglishTest__Logo{
 .options .option input{
     appearance: none;
 }
+.nav__buttons button{
+    background: var(--main-color);
+    color: white;
+    max-height: 40px;
+    
+}
 
+.start__button{
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border: 0;
+    width: 150px;
+    height: 50px;
+}
+.return__button{
+    background-color: var(--main-color);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border: 0;
+    width: 150px;
+    height: 50px;
+}
+.return__button a{
+    text-decoration: none;
+    color: white;
+}
+.start__button:hover{
+    background-color: var(--second-color);
+}
+
+
+.question__screen{
+    background-color: var(--third-color);
+    min-width: 25px;
+    height: 25px;
+    padding-top: 4px;
+    border-radius: 50%;
+    font-weight: bold;
+    align-self: center;
+    text-align: center;
+    font-size: small;
+    cursor: pointer;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.previous__button:hover{
+    background-color: var(--main-color);
+    color: white;
+}
+
+.next__button:hover{
+    background-color: var(--main-color);
+    color: white;
+}
+.instruction li{
+    font-size: medium;
+    color: white;
+    margin-top: 20px;
+}
+.instruction{
+    margin:0 auto;
+}
+
+.instructions__container{
+    display: flex;
+    justify-content: center;
+}
 @media screen and (max-width:576px) {
 .horizontal__line{
     display: none;
@@ -157,6 +234,25 @@ header .header__container div{
     -ms-border-radius: 0px;
     -o-border-radius: 0px;
 }
+.questions__nav{
+    order: 1;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.questions__nav{
+    width: 100%;
+    margin: 0 auto;
+}
+.nav__buttons{
+    width: 100%;   
+}
+.option__label{
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 85%;
+}
+
 
 }
 
