@@ -5,10 +5,10 @@
 
 }
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Start Main Page */
@@ -19,7 +19,12 @@
     background-position: center;
     height: 100vh;
     position: relative;
-    padding-top: 30px;
+    padding-top: 20px;
+    margin-bottom: 40px;
+}
+.landing a{
+    text-decoration: none;
+    color: inherit;
 }
 .landing .overlay{
     position: absolute;
@@ -28,18 +33,64 @@
     width: 100%;
     height: 100%;
     /* background-color: rgb(0 0 0 / 60%); */
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.884), rgba(255, 101, 81, 0.141));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.942), rgba(255, 101, 81, 0.141));
 }
-.landing nav {
+.landing .container {
+    position: relative;
+    z-index: 1;
+}
+.landing header {
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
-    height: 120px;
+    align-items: center;
+    margin-bottom: 40px;
 }
-.landing nav img {
-    width: fit-content;
+.landing header img {
+    width: 10%;
+}
+@media (max-width:676px) {
+    .landing header img {
+        width: 25%;
+    }
+}
+.landing header nav button{
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+main {
+    position: relative;
+}
+main .main-text {
+    margin-top: 150px;
+    width: 40%;
+}
+main .main-text h1{
+    margin: 30px 0px;
+    font-size: 40px;
+    font-weight: bold;
+}
+main .main-text p{
+    font-weight: bold;
+    margin: 30px 0px;
+    color: gray;
+}
+main .main-text button{
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+@media (max-width:767px){
+    main .main-text {
+        text-align: center;
+        width: 100%;
+    }
 }
 /* End Main Page */
 
@@ -114,14 +165,14 @@ header .header__container div .EnglishTest__Logo{
 }
 
 .option__label{
- width: 100%;
- background-color: var(--third-color);
- border-radius: 50px;
- -webkit-border-radius: 50px;
- -moz-border-radius: 50px;
- -ms-border-radius: 50px;
- -o-border-radius: 50px;
- cursor: pointer;
+    width: 100%;
+    background-color: var(--third-color);
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    cursor: pointer;
 }
 .options .option input:checked~.option__label{
     background-color: var(--main-color);
