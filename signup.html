@@ -52,24 +52,28 @@
                     <div class="row px-3 mb-4 d-flex align-items-center">
                         <form>
                             <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label">Email address</label>
-                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Username">
+                              <label for="exampleInputEmail1" class="form-label" >Email address</label>
+                              <span id="lblEmailErorr"></span>
+                              <input type="email" class="form-control" id="txtSignupEmail" aria-describedby="emailHelp" placeholder="Enter Your Email">
                               <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Your Password">
+                                <label for="exampleInputEmail1" class="form-label" >Username</label>
+                                <span id="lblUsernameErorr"></span>
+                                <input type="email" class="form-control" id="txtSignupUsername" placeholder="Enter Your Username">
+                                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                               </div>
                             <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Your Password">
+                                <label for="exampleInputPassword1" class="form-label" >Password</label>
+                                <input type="password" class="form-control" id="txtSignupPassword" placeholder="Enter Your Password">
+                              </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                              <input type="password" class="form-control" id="txtSignupPasswordRe" placeholder="Enter Confirm Password">
                             </div>
-                            <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">Rememebr me</label>
-                            </div>
+                      
                             <div class="d-grid gap-2 col mx-auto">
-                                <button class="btn btn-primary rounded-pill signin-btn"  type="button">Login</button>
+                                <button class="btn btn-primary rounded-pill signin-btn" id="btnSignup"  type="button">Sign Up</button>
                               </div>
                             <!-- <button type="submit" class="btn btn-primary">Login</button> -->
                           </form>
@@ -80,6 +84,7 @@
             </div>
         </div>
     </div>
+   <script src="js/sigin.js"></script>
 </body>
 <!-- JS Files -->
 <script src="js/main.js"></script>
