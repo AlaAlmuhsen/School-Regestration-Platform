@@ -2,6 +2,7 @@ let signOutButton=document.querySelector(".signup__button");
 let testContainer=document.querySelector(".test__container");
 let timerContainer=document.querySelector(".timer__container");
 let startButton=document.getElementById("start-button");
+
 //changeSignOutIcon(): Change the content of the buttons to icons when the screen width is below 576 pixels.
 function changeSignOutIcon(){
     if (screen.width < 576){
@@ -11,6 +12,8 @@ function changeSignOutIcon(){
     }
     
 }
+
+
 
 window.addEventListener("resize", function(){
   changeSignOutIcon()
@@ -284,11 +287,13 @@ function shuffleArray(array) {
   }
   return array;
 }
-questions=shuffleArray(questions).slice(0,15);
-console.log(questions)
-counter=0;
-seconds=60*10;
+// questions=shuffleArray(questions).slice(0,15);
+
+var counter=0;
+
+seconds=10*60;
 userAnswers=[]
+
 //choseAnswer: save the the user answers in an Array(userAnswers).
 function chooseAnswer(button){
     index = parseInt(button.parentNode.parentNode.id);
@@ -349,7 +354,8 @@ function getQuestion(value){
 //Make sure that the user chosen option is checked when the question is displayed.
 let chosenOption=document.querySelectorAll(".option");
 for(let i of chosenOption){
-  if (userAnswers[counter]==i.value){
+  answers=answers=localStorage.getItem("userAnswers").split(",");
+  if (answers[counter]==i.value){
     i.checked=true;
   }
 }
@@ -360,23 +366,32 @@ let questionScreen=document.querySelectorAll(".question__screen");
 questionScreen[counter].style.background="#ff6551";
 questionScreen[counter].style.color="white";
 }
+questions=shuffleArray(questions).slice(0,15);
 
 //startButton: Starts the quiz.
 startButton.addEventListener("click",function(){
+    window.onbeforeunload = function () {
+      localStorage.setItem("userScore",0);
+      localStorage.setItem("userFinishEnglishTest",true);
+      return "leave";
+    }
     if(localStorage.getItem("userFinishEnglishTest")){
       finish();
     }else{
 
     
     getQuestion(questions[0]);
-
+      let startTestTime=new Date().getTime();
+      let endTestTime;
     //updateTimer: Start a timer when the quiz is started and force the quiz to finish when it ends.
     function updateTimer(){
-        let timer=document.querySelector(".timer")
+        endTestTime=new Date().getTime();        
         if (seconds!=0){
-            seconds--
-            let minutes=Math.floor(seconds/60)
-            let remainingSeconds=seconds%60 
+            // seconds--
+            Timer=seconds-parseInt((endTestTime-startTestTime)/1000)
+            console.log(Timer)
+            let minutes=Math.floor(Timer/60)
+            let remainingSeconds=Timer%60 
             timerContainer.innerHTML=`<div class="timer rounded mx-auto p-1">${minutes.toString()}:${remainingSeconds.toString().padStart(2,'0')}</div>`
         }else{
             clearInterval(interval)
@@ -394,6 +409,8 @@ startButton.addEventListener("click",function(){
             previousButton.innerHTML="Previous";
             nextButton.innerHTML="Next";
         }
+
+        
         
     }
     window.addEventListener("resize", function(){
@@ -436,6 +453,7 @@ function nextQuestions(){
     </div>`;
     }else{
         counter++;
+
         getQuestion(questions[counter])
 
     }
@@ -447,14 +465,18 @@ function nextQuestions(){
 function previousQuestions(){
     if(counter!=0){
         counter--;
+
         getQuestion(questions[counter])
     }
 }
 
 //finish (called by the finish button or when the timer ends): Display the user score and finish the quiz.
 function finish(){
+  window.onbeforeunload = null;
     score=0
-    if(!localStorage.getItem("userFinishEnglishTest")){
+
+    
+    if(!localStorage.getItem("userFinishEnglishTest") ){
     let answers=localStorage.getItem("userAnswers").split(",");
     for(let i in answers){
         if(answers[i]==questions[i].options[questions[i].answer]){
@@ -465,15 +487,15 @@ function finish(){
     localStorage.setItem("userScore", score)
     localStorage.setItem("userFinishEnglishTest",true);
   }
+
     testContainer.innerHTML=`<div class="question__container container-fluid mt-1 px-5">
     <h2 class="text-center pb-5 pt-3 text-white">You scored ${localStorage.getItem("userScore")} out of 15</h2>
 </div>
 <div class="rtn__button__container d-flex w-100 justify-content-center">
-<button class="return__button my-3" id="start-button"><a href="index.html">RETURN</a></button>
-
+<a href="index.html"><button class="return__button my-3" id="start-button">RETURN</button></a>
 </div>`;
-  timerContainer.innerHTML="";
-  
+let main=document.getElementById("main");
+main.removeChild(main.children[1]);
 }
 //displayQuestion (called by the question navigator): Display the question to the user based on the number chosen.
 function displayQuestion(button){
