@@ -28,7 +28,9 @@
   <body>
     <header class="container-fluid">
       <div class="signup__container d-flex justify-content-end">
-        <button class="signup__button" id="sign_out"><a href="index.html">Sign Out</a></button>
+        <button class="signup__button" id="sign_out">
+          <a href="index.html">Sign Out</a>
+        </button>
       </div>
       <div class="row header__container mt-5">
         <div class="horizontal__line col-sm-2 col-md-2 col-lg-2 my-auto">
@@ -47,7 +49,9 @@
 
     <div class="d-flex flex-column titles">
       <h2>Welcome Dania Atieh!</h2>
-      <div id="description">You have to go through these steps in a specific order.</div>
+      <div id="description">
+        You have to go through these steps in a specific order.
+      </div>
     </div>
 
     <h3>Your Timeline</h3>
@@ -93,47 +97,79 @@
     </div>
     <!-- End of Cards -->
 
-<button id="submit">SUBMIT</button>
+    <button id="submit">SUBMIT</button>
 
-    <footer class="fixed-bottom">
-      <hr style="color: lightgrey" class="border-5">
-      <div class="position row">
-        <div class="col-md-3 d-flex-column align-items-center px-20">
-          <strong>School Information</strong>
-          <div class="m-1">About Us</div>
-          <div class="m-1">We are hiring</div>
-          <div class="m-1">Blog</div>
-        </div>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-white text-muted">
+      <hr class="border-3" />
 
-        <div class="col-md-3 d-flex-column align-items-center margin_in_mobile">
-          <strong>Get In Touch</strong>
-          <div class="m-2">
-            <i class="fa-solid fa-phone fa-xl" style="color: #ff6551"></i
-            >&nbsp;&nbsp;(480) 555-0103
-          </div>
-          <div class="m-2">
-            <i class="fa-solid fa-location-dot fa-xl" style="color: #ff6551"></i
-            >&nbsp;&nbsp;Amman,Jordan
-          </div>
-          <div class="m-2">
-            <i class="fa-solid fa-envelope fa-xl" style="color: #ff5661"></i
-            >&nbsp;&nbsp;small.learner@gmail.com
-          </div>
-        </div>
+      <!-- Section: Links  -->
+      <section>
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">School Information</h6>
+              <p>
+                <a href="#!" class="text-reset">About Us</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">We are hiring</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Blog</a>
+              </p>
+            </div>
+            <!-- Grid column -->
 
-        <div class="col-md-6 d-flex-column align-items-center">
-          <div class="ms-auto" style="padding-top: 9%">
-            <i class="fa-brands fa-facebook fa-xl" style="color: #ff6551"></i
-            >&nbsp;&nbsp;&nbsp;&nbsp;
-            <i class="fa-brands fa-instagram fa-xl" style="color: #ff5661"></i
-            >&nbsp;&nbsp;&nbsp;&nbsp;
-            <i class="fa-brands fa-linkedin fa-xl" style="color: #ff5661"></i
-            >&nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="m-1">Copyright &copy; SMALLLEARNER 2023</div>
+            <!-- Grid column -->
+            <div class="col-md-5 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Get In Touch</h6>
+              <p>
+                <a href="#">
+                  <i class="fa-solid fa-phone fa-xl"></i>&nbsp;&nbsp;(480)
+                  555-0103</a
+                >
+                <!-- href="tel:+962" -->
+              </p>
+              <p>
+                <i class="fa-solid fa-location-dot fa-xl"></i
+                >&nbsp;&nbsp;Amman,Jordan
+              </p>
+              <p>
+                <a href="mailto:small.learner@gmail.com">
+                  <i class="fa-solid fa-envelope fa-xl"></i>
+                  small.learner@gmail.com
+                </a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Connect with us:</h6>
+              <a href="#"> <i class="fa-brands fa-facebook fa-xl"></i></a
+              >&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#"> <i class="fa-brands fa-instagram fa-xl"></i></a
+              >&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#"> <i class="fa-brands fa-linkedin fa-xl"></i></a>
+            </div>
+            <!-- Grid column -->
           </div>
+          <!-- Grid row -->
         </div>
-      </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div class="text-center p-4">Copyright &copy; SMALLLEARNER 2023</div>
+      <!-- Copyright -->
     </footer>
+    <!-- Footer -->
   </body>
   <!-- JS Files -->
   <script src="js/student-dashboard.js"></script>
