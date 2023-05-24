@@ -246,7 +246,7 @@ function getQuestion(value){
 //Make sure that the user chosen option is checked when the question is displayed.
 let chosenOption=document.querySelectorAll(".option");
 for(let i of chosenOption){
-  answers=answers=localStorage.getItem("userMathAnswers").split(",");
+  answers=userMathAnswers;
   if (answers[counter]==i.value){
     i.checked=true;
   }
