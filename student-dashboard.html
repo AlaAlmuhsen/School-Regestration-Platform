@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
     <!-- Favicon  -->
-    <link rel="shortcut icon" type="image/jpg" href="img/favicon.png"/>
+    <link rel="shortcut icon" type="image/jpg" href="img/favicon.png" />
 
     <!-- CSS Style Sheet -->
     <link
@@ -26,94 +26,114 @@
     <title>Dashboard</title>
   </head>
   <body>
-    <footer>
-      <hr style="color: lightgrey" />
-      <div class="position row">
+    <header class="container-fluid">
+      <div class="signup__container d-flex justify-content-end">
+        <button class="signup__button" id="sign_out"><a href="index.html">Sign Out</a></button>
+      </div>
+      <div class="row header__container mt-5">
+        <div class="horizontal__line col-sm-2 col-md-2 col-lg-2 my-auto">
+          <hr />
+        </div>
+        <div
+          class="img__container col-sm-2 col-md-2 col-lg-1 d-flex justify-content-center"
+        >
+          <img class="EnglishTest__Logo" src="img/logo.png" alt="logo" />
+        </div>
+        <div class="horizontal__line col-sm-8 col-md-8 col-lg-9 my-auto">
+          <hr />
+        </div>
+      </div>
+    </header>
 
+    <div class="d-flex flex-column titles">
+      <h2>Welcome Dania Atieh!</h2>
+      <div id="description">You have to go through these steps in a specific order.</div>
+    </div>
+
+    <h3>Your Timeline</h3>
+    <br />
+
+    <!-- Start of Cards -->
+    <div class="d-flex justify-content-evenly three_cards">
+      <div class="card mb-3" style="max-width: 18rem">
+        <div class="card-header fw-bold ps-4">Step 1:</div>
+        <div class="card-body">
+          <img id="form" class="ps-2" src="img/form.png" /><br /><br />
+          <h5 class="card-title p-2">Enter Your Information</h5>
+          <hr />
+          <p class="card-text p-2 card_description">
+            This information is important for your registration at this school.
+          </p>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 18rem">
+        <div class="card-header fw-bold ps-4">Step 2:</div>
+        <div class="card-body">
+          <img id="form" class="ps-2" src="img/form.png" /><br /><br />
+          <h5 class="card-title p-2">English quiz</h5>
+          <hr />
+          <p class="card-text p-2 card_description">
+            This quiz contains 15 questions and must be completed in 20 minutes.
+          </p>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 18rem">
+        <div class="card-header fw-bold ps-4">Step 3:</div>
+        <div class="card-body">
+          <img id="form" class="ps-2" src="img/form.png" /><br /><br />
+          <h5 class="card-title p-2">Math quiz</h5>
+          <hr />
+          <p class="card-text p-2 card_description">
+            This quiz contains 10 questions and must be completed in 10 minutes.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- End of Cards -->
+
+<button id="submit">SUBMIT</button>
+
+    <footer class="fixed-bottom">
+      <hr style="color: lightgrey" class="border-5">
+      <div class="position row">
         <div class="col-md-3 d-flex-column align-items-center px-20">
-            <strong>School Information</strong>
-            <div>About Us</div>
-            <div>We are hiring</div>
-            <div>Blog</div>
+          <strong>School Information</strong>
+          <div class="m-1">About Us</div>
+          <div class="m-1">We are hiring</div>
+          <div class="m-1">Blog</div>
         </div>
 
         <div class="col-md-3 d-flex-column align-items-center margin_in_mobile">
-            <strong>Get In Touch</strong>
-            <div>
-                <i class="fa-solid fa-phone fa-xl" style="color: #ff6551"></i
-                >&nbsp;&nbsp;(480) 555-0103
-            </div>
-            <div>
-                <i class="fa-solid fa-location-dot fa-xl" style="color: #ff6551"></i
-                >&nbsp;&nbsp;Amman,Jordan
-              </div>
-              <div>
-                <i class="fa-solid fa-envelope fa-xl" style="color: #ff5661"></i
-                >&nbsp;&nbsp;small.learner@gmail.com
-              </div>
-        </div>
-
-        <div class="col-md-6 d-flex-column align-items-center ">
-            <div class="ms-auto " style="padding-top: 9%;">
-                <i class="fa-brands fa-facebook fa-xl" style="color: #ff6551"></i
-                >&nbsp;&nbsp;&nbsp;&nbsp;
-                <i class="fa-brands fa-instagram fa-xl" style="color: #ff5661"></i
-                >&nbsp;&nbsp;&nbsp;&nbsp;
-                <i class="fa-brands fa-linkedin fa-xl" style="color: #ff5661"></i
-                >&nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                  Copyright &copy; SMALLLEARNER 2023 
-                </div>
-              </div>
-        </div>
-      </div>
-    </footer>
-    <!-- Dania's footer -->
-    <!-- <footer>
-      <hr style="color: lightgrey" />
-
-      <div class="d-flex flex-column flex-lg-row mb-3" style="margin-left: 20%;margin-right: 20%;">
-        <div class="p-2">
-          <strong>School Information</strong><br /><br />
-          <div>About Us</div>
-          <br />
-          <div>We are hiring</div>
-          <br />
-          <div>Blog</div>
-        </div>
-
-        <div class="p-2 ms-5">
-          <strong>Get In Touch</strong><br /><br />
-          <div>
+          <strong>Get In Touch</strong>
+          <div class="m-2">
             <i class="fa-solid fa-phone fa-xl" style="color: #ff6551"></i
             >&nbsp;&nbsp;(480) 555-0103
           </div>
-          <br />
-          <div>
+          <div class="m-2">
             <i class="fa-solid fa-location-dot fa-xl" style="color: #ff6551"></i
             >&nbsp;&nbsp;Amman,Jordan
           </div>
-          <br />
-          <div>
+          <div class="m-2">
             <i class="fa-solid fa-envelope fa-xl" style="color: #ff5661"></i
             >&nbsp;&nbsp;small.learner@gmail.com
           </div>
         </div>
 
-        <div class="ms-auto " style="padding-top: 9%;">
-          <i class="fa-brands fa-facebook fa-xl" style="color: #ff6551"></i
-          >&nbsp;&nbsp;&nbsp;&nbsp;
-          <i class="fa-brands fa-instagram fa-xl" style="color: #ff5661"></i
-          >&nbsp;&nbsp;&nbsp;&nbsp;
-          <i class="fa-brands fa-linkedin fa-xl" style="color: #ff5661"></i
-          >&nbsp;&nbsp;&nbsp;&nbsp;
-          <br><br>
-          <div>
-            Copyright &copy; SMALLLEARNER 2023 
+        <div class="col-md-6 d-flex-column align-items-center">
+          <div class="ms-auto" style="padding-top: 9%">
+            <i class="fa-brands fa-facebook fa-xl" style="color: #ff6551"></i
+            >&nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa-brands fa-instagram fa-xl" style="color: #ff5661"></i
+            >&nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa-brands fa-linkedin fa-xl" style="color: #ff5661"></i
+            >&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="m-1">Copyright &copy; SMALLLEARNER 2023</div>
           </div>
         </div>
       </div>
-    </footer> -->
+    </footer>
   </body>
   <!-- JS Files -->
   <script src="js/student-dashboard.js"></script>
