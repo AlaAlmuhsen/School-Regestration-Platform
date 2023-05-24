@@ -1,4 +1,5 @@
 /* Start Main Page */
+sessionStorage.setItem("isLogin", "false");
 /* End Main Page */
 
 /* Start signin Page */

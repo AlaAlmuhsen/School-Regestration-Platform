@@ -83,7 +83,7 @@ main .main-text button{
     background-color: var(--main-color);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 50px;
     border-radius: 4px;
 }
 @media (max-width:767px){
@@ -94,27 +94,8 @@ main .main-text button{
 }
 /* End Main Page */
 
-/* Start signin Page */
-.signin-btn{
-    background-color: var(--main-color);
-    border: none;
-}
 
-.signin-btn:hover{
-    background-color: var(--second-color);
-
-}
-
-.signin-btn:click{
-    background-color: var(--second-color);
-
-}
-/* End signin Page */
-
-/* Start signUp Page */
-/* End signUP Page */
-
-/* Start E-test Page */
+/*Header*/
 header .header__container div .EnglishTest__Logo{
     width: 90%;
     
@@ -141,6 +122,29 @@ header .header__container div .EnglishTest__Logo{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+/*Header*/
+/* Start signin Page */
+.signin-btn{
+    background-color: var(--main-color);
+    border: none;
+}
+
+.signin-btn:hover{
+    background-color: var(--second-color);
+
+}
+
+.signin-btn:click{
+    background-color: var(--second-color);
+
+}
+/* End signin Page */
+
+/* Start signUp Page */
+/* End signUP Page */
+
+/* Start E-test Page */
+
 .timer__container .timer{
     color: var(--main-color);
     font-weight: bold;
@@ -214,9 +218,10 @@ header .header__container div .EnglishTest__Logo{
     width: 150px;
     height: 50px;
 }
-.return__button a{
+a .return__button{
     text-decoration: none;
     color: white;
+    
 }
 .start__button:hover{
     background-color: var(--second-color);
