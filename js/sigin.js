@@ -46,18 +46,6 @@
 
 // }
 
-function checkinputEmpty(strValue){
-    return strValue !== ''
-}
-
-function ValidEmail(strEmail){
-    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-   return emailPattern.test(strEmail)
-}
-
-function checkCharMoreThan10(strValue){
-    return strValue.length >=10
-}
 
 
 // function validateEmail(txtUsername) {
@@ -83,56 +71,94 @@ function checkCharMoreThan10(strValue){
 //     return message;
 //   }
 
- 
+
+
+function checkinputEmpty(strValue){
+    return strValue !== ''
+}
+
+function ValidEmail(strEmail){
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+   return emailPattern.test(strEmail)
+}
+
+function checkCharMoreThan10(strValue){
+    return strValue.length >=10
+}
+
+ function Adduser(){
+    var savedData = localStorage.getItem("userData");
+    var parsedData = JSON.parse(savedData);
+
+
+    let user = [];
+    let userData = {};
+
+    user.push.apply(user, parsedData);
+
+    let email = document.getElementById('txtSignupEmail').value.trim();
+    let username = document.getElementById('txtSignupUsername').value.trim();
+    let password = document.getElementById('txtSignupPassword').value.trim();
+
+    userData.email = email;
+    userData.username = username;
+    userData.password = password;
+
+
+user.push(userData);
+localStorage.setItem("userData", JSON.stringify(user));
+
+console.log(user);
+window.location.href = "signin.html";
+ }
   
-  btnSignup.addEventListener('click',function(){
-
-    let txtEmail=document.getElementById('txtSignupEmail');
-    let emailValue = txtEmail.value.trim();
-    let emailErorr=document.getElementById('lblEmailErorr');
 
 
-    let txtUsername=document.getElementById('txtSignupUsername');
-    let usernameValue = txtUsername.value.trim();
-    let usernameErorr=document.getElementById('lblUsernameErorr');
 
 
-    // let message=validateEmail(txtEmail);
-
-    if(checkinputEmpty(emailValue) && ValidEmail(emailValue)){
-        emailErorr.innerHTML= '';
-        if(checkinputEmpty(usernameValue) && checkCharMoreThan10(usernameValue)){
-        // emailErorr.innerHTML= "Done";
-        // emailErorr.style.color="green";
-
-        usernameErorr.innerHTML= "Done";
-        usernameErorr.style.color="green";
-    }
-    else if(!checkinputEmpty(usernameValue)){
-        usernameErorr.innerHTML= 'Please Enter Your Username';
-        usernameErorr.style.color="red";
-    }
-    else if(!checkCharMoreThan10(usernameValue)){
-        usernameErorr.innerHTML= 'Please Enter More Than 10 char';
-        usernameErorr.style.color="red";
-    }
-    else{
-        usernameErorr.innerHTML= 'Invalid Username or empty input';
-        usernameErorr.style.color="red";
-    }
-    }
-    else if(!checkinputEmpty(emailValue)){
-        emailErorr.innerHTML= 'Please Enter Your Email';
-        emailErorr.style.color="red";
-    }
-    else if(!ValidEmail(emailValue)){
-        emailErorr.innerHTML= 'Invalid Email Address';
-        emailErorr.style.color="red";
-    }
-    else{
-        emailErorr.innerHTML= 'Invalid email address or empty input';
-        emailErorr.style.color="red";
-    }
-  })
 
 
+
+
+  function checkUsernameAndPassword(){
+    var savedData = localStorage.getItem("userData");
+    var parsedData = JSON.parse(savedData);
+
+    let users = [];
+    users.push.apply(users, parsedData);
+
+    let profileUsername='';
+
+var emailInput = document.getElementById("txtEmail").value.trim();
+var passwordInput =  document.getElementById("txtPassword").value.trim();
+
+// Flag to indicate if the username and password match
+var matchFound = false;
+
+// Iterate through the array to check for a match
+for (var i = 0; i < users.length; i++) {
+  var userDate = users[i];
+  if (userDate.email === emailInput && userDate.password === passwordInput) {
+    matchFound = true;
+    profileUsername=userDate.username;
+    break;
+  }
+}
+// Check if a match was found
+if (matchFound) {
+
+    sessionStorage.setItem("userActive", "True");
+    sessionStorage.setItem("username", profileUsername);
+    // console.log(sessionStorage.getItem("userActive"));
+    // console.log(sessionStorage.getItem("username"));    
+    window.location.href = "student-dashboard.html";
+} else {
+    document.getElementById("lblSignAlert").innerHTML="Username and password do not match.";
+}
+  }
+
+
+
+//   sessionStorage.setItem("userActive", "False");
+//   sessionStorage.getItem("userActive");
+//   sessionStorage.getItem("username");

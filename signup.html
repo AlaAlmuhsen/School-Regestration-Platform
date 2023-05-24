@@ -85,6 +85,52 @@
         </div>
     </div>
    <script src="js/sigin.js"></script>
+   <script>
+     let btnSignup=document.getElementById("btnSignup");
+     btnSignup.addEventListener('click',function(){
+ 
+    let txtEmail=document.getElementById('txtSignupEmail');
+    let emailValue = txtEmail.value.trim();
+    let emailErorr=document.getElementById('lblEmailErorr');
+
+
+    let txtUsername=document.getElementById('txtSignupUsername');
+    let usernameValue = txtUsername.value.trim();
+    let usernameErorr=document.getElementById('lblUsernameErorr');
+
+    if(checkinputEmpty(emailValue) && ValidEmail(emailValue)){
+        emailErorr.innerHTML= '';
+        if(checkinputEmpty(usernameValue) && checkCharMoreThan10(usernameValue)){
+        usernameErorr.innerHTML= '';
+        Adduser();
+    }
+    else if(!checkinputEmpty(usernameValue)){
+        usernameErorr.innerHTML= 'Please Enter Your Username';
+        usernameErorr.style.color="red";
+    }
+    else if(!checkCharMoreThan10(usernameValue)){
+        usernameErorr.innerHTML= 'Please Enter More Than 10 char';
+        usernameErorr.style.color="red";
+    }
+    else{
+        usernameErorr.innerHTML= 'Invalid Username or empty input';
+        usernameErorr.style.color="red";
+    }
+    }
+    else if(!checkinputEmpty(emailValue)){
+        emailErorr.innerHTML= 'Please Enter Your Email';
+        emailErorr.style.color="red";
+    }
+    else if(!ValidEmail(emailValue)){
+        emailErorr.innerHTML= 'Invalid Email Address';
+        emailErorr.style.color="red";
+    }
+    else{
+        emailErorr.innerHTML= 'Invalid email address or empty input';
+        emailErorr.style.color="red";
+    }
+  });
+   </script>
 </body>
 <!-- JS Files -->
 <script src="js/main.js"></script>
