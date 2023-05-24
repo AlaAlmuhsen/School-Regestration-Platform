@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="img/favicon.png"/>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,14 +13,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
     
-    <title>Document</title>
+    <title>English Test</title>
 </head>
 <body>
     <header class="container-fluid">
         <div class="signup__container d-flex justify-content-end">
-            <h6 class="user__name mt-1 me-2">Mohammad Alfreijat</h6>
             <button class="signup__button">Sign Out</button>
-
+            
         </div>
         <div class="row header__container mt-5">
             <div class="horizontal__line col-sm-2 col-md-2 col-lg-2 my-auto"><hr></div>
@@ -33,42 +33,85 @@
 
     <main class="mt-1">
         <div class="test__title d-flex flex-row justify-content-center">
-            <h1 class="mx-auto">English Test</h1>
+            <h2 class="mx-auto">English Test</h2>
         </div>
-        <div class="timer__container d-flex flex-row justify-content-end">
-            <div class="timer align-self-end rounded p-1">Timer</div>
+        <div class="timer__container d-flex flex-row justify-content-center mt-4">
+            <!-- <div class="timer rounded mx-auto p-1">Timer</div> -->
         </div>
+            <div class="test__container w-100">
+                <div class="question__container container-fluid mt-1 px-5">
+                    <div class="instructions__container">
+                    <ul class="instruction py-3">
+                    <li>This English test consists of 15 questions and must be completed within 20 minutes.</li>
+                    <li>Read each question carefully and choose the best answer from the options provided.</li>
+                    <li style="margin-bottom: 20px;">Manage your time wisely, allowing approximately 1 minute and 20 seconds for each question.</li>
+                    </ul>
+                </div>
+                </div>
+                <div class="str__button__container d-flex w-100 justify-content-center">
+                    <button class="start__button my-3" id="start-button">START</button>
+                    
+                </div>
+
+                </div>
+            </div>
         
+        
+
+            
+    </main>
+    
+
+    <!-- <div class="test__container">
         <div class="question__container container-fluid mt-1 px-5">
             <h3 class="text-center pb-5 pt-3 text-white">Q1: Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt perferendis neque dolorem iure incidunt aspernatur fugiat aliquid iste delectus vel, itaque molestias quam, nihil accusamus a architecto quidem autem fuga?</h3>
         </div>
         <div class="options__container card container shadow col-12 col-sm-10 col-md-8 col-lg-6 mb-3">
             <div class="options d-flex flex-column gap-1 w-100">
                 <div class="option w-75 mx-auto">
-                    <input type="radio" name="option" id="option1" value="option1">
+                    <input type="radio" name="option" id="option1" value="option1" onclick="chooseAnswer(this)">
                     <label class="option__label ps-2 py-2" for="option1">option1</label>
                 </div>
                 <div class="option w-75 mx-auto">
-                    <input type="radio" name="option" id="option2" value="option2">
+                    <input type="radio" name="option" id="option2" value="option2" onclick="chooseAnswer(this)">
                     <label class="option__label ps-2 py-2" for="option2">option2</label>
                 </div>
                 <div class="option w-75 mx-auto">
-                    <input type="radio" name="option" id="option3" value="option3">
+                    <input type="radio" name="option" id="option3" value="option3" onclick="chooseAnswer(this)">
                     <label class="option__label ps-2 py-2" for="option3">option3</label>
                 </div>
                 <div class="option w-75 mx-auto">
-                    <input type="radio" name="option" id="option4" value="option4">
+                    <input type="radio" name="option" id="option4" value="option4" onclick="chooseAnswer(this)">
                     <label class="option__label ps-2 py-2" for="option4">option4</label>
                 </div>
             </div>
         </div>
-    </main>
-    
+
+            <div class="nav__buttons d-flex justify-content-around flex-wrap my-3 w-75 mx-auto">
+                <button class="previous__button btn mt-3" id="prev-button" onclick="previousQuestions()">Previous</button>
+                <div class="questions__nav col-5 d-flex justify-content-center align-content-center gap-1 mt-4">
+                    <div class="question__screen" onclick="displayQuestion(this)">1</div>
+                    <div class="question__screen" onclick="displayQuestion(this)">2</div>
+                    <div class="question__screen" onclick="displayQuestion(this)">3</div>
+                    <div class="question__screen" onclick="displayQuestion(this)">4</div>
+                    <div class="question__screen" onclick="displayQuestion(this)">5</div>
+                    <div class="question__screen" onclick="displayQuestion(this)">6</div>
+                    <div class="question__screen" onclick="displayQuestion(this)">7</div>
+                    <div class="question__screen" onclick="displayQuestion(this)">8</div>
+                    <div class="question__screen" onclick="displayQuestion(this)">9</div>
+                    <div class="question__screen" onclick="displayQuestion(this)">10</div>
+                </div>
+                <button class="next__button btn mt-3" id="next-button" onclick="nextQuestions()">Next</button>
+        
+            </div>
+
+
+    </div> -->
 </body>
 <!-- JS Files -->
 <script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-<!-- Font Asweome -->
+<!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/bc3de9fbb5.js" crossorigin="anonymous"></script>
 <script src="js/test-english.js"></script>
 </html>
