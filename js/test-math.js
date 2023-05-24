@@ -19,261 +19,157 @@ window.addEventListener("resize", function(){
   changeSignOutIcon()
 });
 
-let questions = [
+
+  let questions = [
     {
-      question: "Which sentence contains a subject-verb agreement error?",
-      options: [
-        "She run to the store.",
-        "They is going to the park.",
-        "He plays tennis every day.",
-        "I don't have any money."
-      ],
+      question: "What is the sum of 5 + 3?",
+      options: ["7", "8", "9", "10"],
       answer: 1
     },
     {
-      question: "Choose the correct form of the verb to complete the sentence: They ________ to the party last night.",
-      options: ["goes", "go", "going", "went"],
-      answer: 3
-    },
-    {
-      question: "Select the sentence that uses the correct punctuation:",
-      options: [
-        "I went to the store and bought milk, bread, and eggs.",
-        "I went to the store and bought milk bread and eggs.",
-        "I went to the store and bought milk, bread and eggs.",
-        "I went to the store and bought milk, bread and, eggs."
-      ],
-      answer: 0
-    },
-    {
-      question: "Identify the sentence with correct subject-verb agreement:",
-      options: [
-        "The books belongs on the shelf.",
-        "The books belong on the shelf.",
-        "The books is on the shelf.",
-        "The books are on the shelf."
-      ],
-      answer: 3
-    },
-    {
-      question: "Which sentence is grammatically correct?",
-      options: [
-        "Me and my friend are going to the movies.",
-        "Me and my friend is going to the movies.",
-        "I and my friend are going to the movies.",
-        "My friend and I are going to the movies."
-      ],
-      answer: 3
-    },
-    {
-      question: "Select the sentence that uses the correct verb tense:",
-      options: [
-        "He will goes to the party tonight.",
-        "He will go to the party tonight.",
-        "He will going to the party tonight.",
-        "He will gone to the party tonight."
-      ],
+      question: "How many sides does a triangle have?",
+      options: ["2", "3", "4", "5"],
       answer: 1
     },
     {
-      question: "Choose the correct pronoun to complete the sentence: ________ is a doctor.",
-      options: ["She", "I", "Them", "We"],
-      answer: 0
-    },
-    {
-      question: "Identify the sentence with correct capitalization:",
-      options: [
-        "i enjoy playing soccer with my friends.",
-        "I enjoy playing soccer with my friends.",
-        "i enjoy playing soccer with my Friends.",
-        "i enjoy playing Soccer with my friends."
-      ],
-      answer: 1
-    },
-    {
-      question: "Which sentence is written in the active voice?",
-      options: [
-        "The cake was baked by Mary.",
-        "Mary baked the cake.",
-        "The cake had been baked by Mary.",
-        "The cake will be baked by Mary."
-      ],
-      answer: 1
-    },
-    {
-      question: "Choose the correct form of the adjective to complete the sentence: She is a ________ girl.",
-      options: ["good", "better", "best", "gooder"],
-      answer: 0
-    },
-    {
-      question: "Select the sentence with correct word order:",
-      options: [
-        "Yesterday I went to the park.",
-        "Went I to the park yesterday.",
-        "I to the park went yesterday.",
-        "Yesterday went I to the park."
-      ],
-      answer: 0
-    },
-    {
-      question: "Identify the sentence with correct use of possessive pronouns:",
-      options: [
-        "Your welcome to join us.",
-        "You're welcome to join us.",
-        "Their welcome to join us.",
-        "There welcome to join us."
-      ],
-      answer: 0
-    },
-    {
-      question: "Choose the correct form of the verb to complete the sentence: She ________ the dishes every day.",
-      options: ["wash", "washes", "washing", "washed"],
-      answer: 1
-    },
-    {
-      question: "Select the sentence that uses the correct comparative adjective:",
-      options: [
-        "She is more taller than me.",
-        "She is taller than me.",
-        "She is tall than me.",
-        "She is tallester than me."
-      ],
-      answer: 1
-    },
-    {
-      question: "Which sentence contains a pronoun-antecedent agreement error?",
-      options: [
-        "Everyone brought their own lunch.",
-        "Everyone brought his own lunch.",
-        "Everyone brought her own lunch.",
-        "Everyone brought there own lunch."
-      ],
-      answer: 0
-    },
-    {
-      question: "Choose the correct form of the verb to complete the sentence: They ________ basketball every Saturday.",
-      options: ["plays", "play", "playing", "played"],
-      answer: 1
-    },
-    {
-      question: "Identify the sentence with correct use of apostrophe:",
-      options: [
-        "The dog's are barking.",
-        "The dogs are barking.",
-        "The dogs' are barking.",
-        "The dogs is barking."
-      ],
-      answer: 1
-    },
-    {
-      question: "Which sentence is grammatically correct?",
-      options: [
-        "It's raining, but I forgot my umbrella.",
-        "Its raining, but I forgot my umbrella.",
-        "It's raining, but I forgot my umbrella.",
-        "Its raining but I forgot my umbrella."
-      ],
+      question: "What is 7 multiplied by 4?",
+      options: ["21", "24", "28", "32"],
       answer: 2
     },
     {
-      question: "Select the sentence with correct use of articles:",
-      options: [
-        "I saw a elephant at the zoo.",
-        "I saw an elephant at the zoo.",
-        "I saw the elephant at the zoo.",
-        "I saw elephant at the zoo."
-      ],
+      question: "If you have 10 cookies and you eat 3, how many cookies do you have left?",
+      options: ["4", "6", "7", "10"],
       answer: 1
     },
     {
-      question: "Choose the correct form of the verb to complete the sentence: We ________ to the beach last summer.",
-      options: ["goes", "go", "going", "went"],
+      question: "Which number comes next in the sequence: 1, 3, 5, 7, __?",
+      options: ["8", "9", "10", "11"],
       answer: 3
     },
     {
-      question: "Identify the sentence with correct use of capitalization:",
-      options: [
-        "My brother is studying biology at university.",
-        "My brother is studying Biology at university.",
-        "My brother is studying biology at University.",
-        "My brother is studying Biology at University."
-      ],
-      answer: 0
-    },
-    {
-      question: "Which sentence is written in the passive voice?",
-      options: [
-        "John will buy the groceries.",
-        "The groceries were bought by John.",
-        "The groceries have been bought by John.",
-        "The groceries will be bought by John."
-      ],
-      answer: 1
-    },
-    {
-      question: "Choose the correct pronoun to complete the sentence: ________ are going to the party.",
-      options: ["She", "I", "Them", "We"],
-      answer: 3
-    },
-    {
-      question: "Select the sentence that uses the correct verb tense:",
-      options: [
-        "They are traveled to Europe last year.",
-        "They traveled to Europe last year.",
-        "They have been traveled to Europe last year.",
-        "They will traveling to Europe last year."
-      ],
-      answer: 1
-    },
-    {
-      question: "Identify the sentence with correct subject-verb agreement:",
-      options: [
-        "The dogs is barking.",
-        "The dogs are barking.",
-        "The dogs am barking.",
-        "The dogs be barking."
-      ],
-      answer: 1
-    },
-    {
-      question: "Which sentence contains a verb tense error?",
-      options: [
-        "I have seen that movie last night.",
-        "I saw that movie last night.",
-        "I will see that movie last night.",
-        "I had seen that movie last night."
-      ],
-      answer: 0
-    },
-    {
-      question: "Choose the correct form of the adjective to complete the sentence: It was the ________ day of my life.",
-      options: ["good", "better", "best", "gooder"],
+      question: "How many inches are in a foot?",
+      options: ["6", "10", "12", "16"],
       answer: 2
     },
     {
-      question: "Select the sentence with correct word order:",
-      options: [
-        "I usually take the bus to work.",
-        "Take I usually the bus to work.",
-        "I take usually the bus to work.",
-        "I usually the bus take to work."
-      ],
+      question: "What is the value of 2 + 2 x 3?",
+      options: ["8", "10", "12", "16"],
       answer: 0
     },
     {
-      question: "Identify the sentence with correct use of possessive pronouns:",
-      options: [
-        "Your welcome to join us.",
-        "You're welcome to join us.",
-        "Their welcome to join us.",
-        "There welcome to join us."
-      ],
+      question: "How many sides does a square have?",
+      options: ["2", "3", "4", "5"],
+      answer: 2
+    },
+    {
+      question: "What is 15 divided by 3?",
+      options: ["3", "5", "10", "15"],
       answer: 1
     },
     {
-      question: "Choose the correct form of the verb to complete the sentence: They ________ soccer every weekend.",
-      options: ["plays", "play", "playing", "played"],
+      question: "Which number is the smallest: 17, 22, 10, or 8?",
+      options: ["17", "22", "10", "8"],
+      answer: 3
+    },
+    {
+      question: "What is the value of 3 squared?",
+      options: ["3", "6", "9", "12"],
+      answer: 2
+    },
+    {
+      question: "How many minutes are there in an hour?",
+      options: ["10", "30", "60", "100"],
+      answer: 2
+    },
+    {
+      question: "If you have 8 apples and you give away 3, how many apples do you have left?",
+      options: ["2", "3", "5", "8"],
+      answer: 3
+    },
+    {
+      question: "What is the value of 7 + 3 x 2?",
+      options: ["10", "13", "16", "20"],
       answer: 1
+    },
+    {
+      question: "Which number comes next in the sequence: 2, 4, 6, 8, __?",
+      options: ["10", "11", "12", "14"],
+      answer: 3
+    },
+    {
+      question: "How many days are there in a week?",
+      options: ["5", "6", "7", "8"],
+      answer: 2
+    },
+    {
+      question: "What is the value of 4 x 4 - 2?",
+      options: ["10", "14", "16", "18"],
+      answer: 1
+    },
+    {
+      question: "How many sides does a hexagon have?",
+      options: ["4", "5", "6", "7"],
+      answer: 2
+    },
+    {
+      question: "What is the result of 12 divided by 4?",
+      options: ["2", "3", "4", "6"],
+      answer: 2
+    },
+    {
+      question: "Which number is larger: 25 or 15?",
+      options: ["25", "15", "Equal", "Not comparable"],
+      answer: 0
+    },
+    {
+      question: "What is the value of 8 - 3 x 2?",
+      options: ["2", "5", "8", "10"],
+      answer: 1
+    },
+    {
+      question: "How many months are in a year?",
+      options: ["6", "8", "10", "12"],
+      answer: 3
+    },
+    {
+      question: "What is the value of 5 squared?",
+      options: ["5", "10", "25", "30"],
+      answer: 2
+    },
+    {
+      question: "How many legs does a dog have?",
+      options: ["2", "4", "6", "8"],
+      answer: 1
+    },
+    {
+      question: "What is the sum of 15 + 20?",
+      options: ["25", "30", "35", "40"],
+      answer: 2
+    },
+    {
+      question: "What is the value of 10 divided by 2?",
+      options: ["2", "5", "8", "10"],
+      answer: 1
+    },
+    {
+      question: "How many colors are there in a rainbow?",
+      options: ["4", "6", "7", "8"],
+      answer: 2
+    },
+    {
+      question: "What is the result of 3 x 4 + 2?",
+      options: ["10", "14", "16", "18"],
+      answer: 1
+    },
+    {
+      question: "How many fingers are there on one hand?",
+      options: ["2", "4", "5", "10"],
+      answer: 2
+    },
+    {
+      question: "Which number is greater: 12 or 8?",
+      options: ["12", "8", "Equal", "Not comparable"],
+      answer: 0
     }
   ];
   
@@ -291,14 +187,14 @@ function shuffleArray(array) {
 
 var counter=0;
 
-seconds=20*60;
-userAnswers=[]
+seconds=10*60;
+userMathAnswers=[]
 
-//choseAnswer: save the the user answers in an Array(userAnswers).
+//choseAnswer: save the the user answers in an Array(userMathAnswers).
 function chooseAnswer(button){
     index = parseInt(button.parentNode.parentNode.id);
-    userAnswers[index]=button.value;
-    localStorage.setItem("userAnswers",userAnswers);
+    userMathAnswers[index]=button.value;
+    localStorage.setItem("userMathAnswers",userMathAnswers);
     console.log(button.value)
 }
 
@@ -341,11 +237,7 @@ function getQuestion(value){
             <div class="question__screen" onclick="displayQuestion(this)">8</div>
             <div class="question__screen" onclick="displayQuestion(this)">9</div>
             <div class="question__screen" onclick="displayQuestion(this)">10</div>
-            <div class="question__screen" onclick="displayQuestion(this)">11</div>
-            <div class="question__screen" onclick="displayQuestion(this)">12</div>
-            <div class="question__screen" onclick="displayQuestion(this)">13</div>
-            <div class="question__screen" onclick="displayQuestion(this)">14</div>
-            <div class="question__screen" onclick="displayQuestion(this)">15</div>
+
         </div>
         <button class="next__button btn mt-3" id="next-button" onclick="nextQuestions()">Next</button>
 
@@ -354,7 +246,7 @@ function getQuestion(value){
 //Make sure that the user chosen option is checked when the question is displayed.
 let chosenOption=document.querySelectorAll(".option");
 for(let i of chosenOption){
-  answers=userAnswers;
+  answers=userMathAnswers;
   if (answers[counter]==i.value){
     i.checked=true;
   }
@@ -366,16 +258,16 @@ let questionScreen=document.querySelectorAll(".question__screen");
 questionScreen[counter].style.background="#ff6551";
 questionScreen[counter].style.color="white";
 }
-questions=shuffleArray(questions).slice(0,15);
+questions=shuffleArray(questions).slice(0,10);
 
 //startButton: Starts the quiz.
 startButton.addEventListener("click",function(){
     window.onbeforeunload = function () {
-      localStorage.setItem("userScore",0);
-      localStorage.setItem("userFinishEnglishTest",true);
+      localStorage.setItem("userMathScore",0);
+      localStorage.setItem("userFinishMathTest",true);
       return "leave";
     }
-    if(localStorage.getItem("userFinishEnglishTest")){
+    if(localStorage.getItem("userFinishMathTest")){
       finish();
     }else{
 
@@ -424,7 +316,7 @@ startButton.addEventListener("click",function(){
 //nextQuestions(called by the next button): Display the next question for the user as long as it's not the last question.
 //If it's the last question then the next button is converted to finish.
 function nextQuestions(){
-    if (counter == 14){
+    if (counter == 9){
         counter++;
         testContainer.innerHTML=`<div class="question__container container-fluid mt-1 px-5">
         <h2 class="text-center pb-5 pt-3 text-white">Are you sure you want to finish?</h2>
@@ -442,11 +334,7 @@ function nextQuestions(){
             <div class="question__screen" onclick="displayQuestion(this)">8</div>
             <div class="question__screen" onclick="displayQuestion(this)">9</div>
             <div class="question__screen" onclick="displayQuestion(this)">10</div>
-            <div class="question__screen" onclick="displayQuestion(this)">11</div>
-            <div class="question__screen" onclick="displayQuestion(this)">12</div>
-            <div class="question__screen" onclick="displayQuestion(this)">13</div>
-            <div class="question__screen" onclick="displayQuestion(this)">14</div>
-            <div class="question__screen" onclick="displayQuestion(this)">15</div>
+
         </div>
         <button class="finish__button btn mt-3" id="finish-button" onclick="finish()">Finish</button>
 
@@ -476,20 +364,20 @@ function finish(){
     score=0
 
     
-    if(!localStorage.getItem("userFinishEnglishTest") ){
-    let answers=localStorage.getItem("userAnswers").split(",");
+    if(!localStorage.getItem("userFinishMathTest") ){
+    let answers=localStorage.getItem("userMathAnswers").split(",");
     for(let i in answers){
         if(answers[i]==questions[i].options[questions[i].answer]){
             score++
         }
 
     }
-    localStorage.setItem("userScore", score)
-    localStorage.setItem("userFinishEnglishTest",true);
+    localStorage.setItem("userMathScore", score)
+    localStorage.setItem("userFinishMathTest",true);
   }
 
     testContainer.innerHTML=`<div class="question__container container-fluid mt-1 px-5">
-    <h2 class="text-center pb-5 pt-3 text-white">You scored ${localStorage.getItem("userScore")} out of 15</h2>
+    <h2 class="text-center pb-5 pt-3 text-white">You scored ${localStorage.getItem("userMathScore")} out of 10</h2>
 </div>
 <div class="rtn__button__container d-flex w-100 justify-content-center">
 <a href="index.html"><button class="return__button my-3" id="start-button">RETURN</button></a>
