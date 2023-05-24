@@ -327,14 +327,14 @@ body > .titles {
 body > h3 {
     margin-top: 3%;
     margin-left: 11%;
-    color:#ff6551;
+    color:var(--main-color);
 }
 
 body > div > #description{
     color : var(--second-color);
 }
 
-body > div > div > div > #form{
+body > div > div > div > img{
     width: 38%;
     height: 37%;
 }
@@ -346,7 +346,8 @@ body > div > div > div > .card_description{
 
 body > div > div > div > hr{
     width: 20%;
-    border-top: 4px solid #fa4d36;
+    border-top: 4px solid;
+    border-color: var(--main-color);
 }
 
 body > #submit{
