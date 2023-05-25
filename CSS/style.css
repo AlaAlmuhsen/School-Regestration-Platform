@@ -494,7 +494,7 @@ body > header > .row > .horizontal__line > hr {
 }
 
 /* dark mode toggle */
-label{
+/* body > header > label{
     margin-right: 5vh;
     position: relative;
     width: 8vh;
@@ -531,7 +531,7 @@ label{
   }
   input{
     display: none;
-  }
+  } */
   /* end of dark mode toggle */
 /* end nav */
 body > div > h2 {
