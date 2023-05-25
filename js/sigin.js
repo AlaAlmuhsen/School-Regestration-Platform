@@ -45,7 +45,7 @@ function checkCharMoreThan10(strValue){
     let userMathAnswers=[];
 
     let userForm=[];
-
+     let userFormComplete=false;
 
     userData.email = email;
     userData.username = username;
@@ -58,7 +58,7 @@ function checkCharMoreThan10(strValue){
     userData.userMathTestScore = userMathTestScore;
     userData.userMathAnswers = userMathAnswers;
     userData.userForm = userForm;
-
+    userData.userFormComplete = userFormComplete;
 
     user.push(userData);
     localStorage.setItem("userData", JSON.stringify(user));
