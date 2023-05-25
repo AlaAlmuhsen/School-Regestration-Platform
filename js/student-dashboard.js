@@ -63,14 +63,17 @@ window.addEventListener("resize", function () {
 // form1.after(done_img1);
 
 //Is there a score in local storage
-if (localStorage.getItem("userFinishEnglishTest") === 'true') {
+var allUserTestInfo=JSON.parse(localStorage.getItem("userData"));
+var userTestInfo=allUserTestInfo[parseInt(sessionStorage.getItem("userID"))-1];
+
+if (userTestInfo["userFinishEnglishTest"] === true) {
   cards[1].style.cursor = 'default'
   cards[1].style.border = "solid 1px green";
   cards[1].style.boxShadow = "0px 3px 8px lightgreen";
   form2.after(done_img2);
 }
 
-if (localStorage.getItem("userFinishMathTest") === 'true') {
+if (userTestInfo["userFinishMathTest"] === true) {
   cards[2].style.cursor = 'default'
   cards[2].style.border = "solid 1px green";
   cards[2].style.boxShadow = "0px 3px 8px lightgreen";
@@ -83,12 +86,12 @@ cards[0].addEventListener("click", function () {
 });
 
 cards[1].addEventListener("click", function () {
-  if (localStorage.getItem("userFinishEnglishTest") === 'false')
+  if (userTestInfo["userFinishEnglishTest"] === false)
     location.href = "test-english.html";
 });
 
 cards[2].addEventListener("click", function () {
-  if (localStorage.getItem("userFinishMathTest") === 'false')
+  if (userTestInfo["userFinishMathTest"] === false)
     location.href = "test-math.html";
 });
 
