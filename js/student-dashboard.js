@@ -4,6 +4,7 @@ var form1 = document.getElementById("form1");
 var form2 = document.getElementById("form2");
 var form3 = document.getElementById("form3");
 var submit = document.getElementById("submit");
+var counter = 0 ;
 
 //check if user is signed in 
 if(sessionStorage.getItem("userActive") === null )
@@ -62,14 +63,14 @@ window.addEventListener("resize", function () {
 // form1.after(done_img1);
 
 //Is there a score in local storage
-if (localStorage.getItem("userFinishEnglishTest") === true) {
+if (localStorage.getItem("userFinishEnglishTest") === 'true') {
   cards[1].style.cursor = 'default'
   cards[1].style.border = "solid 1px green";
   cards[1].style.boxShadow = "0px 3px 8px lightgreen";
   form2.after(done_img2);
 }
 
-if (localStorage.getItem("userFinishMathTest") === true) {
+if (localStorage.getItem("userFinishMathTest") === 'true') {
   cards[2].style.cursor = 'default'
   cards[2].style.border = "solid 1px green";
   cards[2].style.boxShadow = "0px 3px 8px lightgreen";
@@ -82,22 +83,22 @@ cards[0].addEventListener("click", function () {
 });
 
 cards[1].addEventListener("click", function () {
-  if (localStorage.getItem("userFinishEnglishTest") === false)
+  if (localStorage.getItem("userFinishEnglishTest") === 'false')
     location.href = "test-english.html";
 });
 
 cards[2].addEventListener("click", function () {
-  if (localStorage.getItem("userFinishMathTest") === false)
+  if (localStorage.getItem("userFinishMathTest") === 'false')
     location.href = "test-math.html";
 });
 
 //change color of submit
 if (
-  localStorage.getItem("userFinishEnglishTest") === true &&
-  localStorage.getItem("userFinishMathTest") === true
+  localStorage.getItem("userFinishEnglishTest") === 'true' &&
+  localStorage.getItem("userFinishMathTest") === 'true'
 )
 {
   submit.style.cursor = 'pointer';
-  submit.style.backgroundColor = "#ff6551";
+  submit.style.backgroundColor = "var(--main-color)";
   location.href = "student-result.html";
 }
