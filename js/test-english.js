@@ -3,26 +3,22 @@ let testContainer=document.querySelector(".test__container");
 let timerContainer=document.querySelector(".timer__container");
 let startButton=document.getElementById("start-button");
 
+//check if user is signed in 
+if(sessionStorage.getItem("userActive") === null )
+{
+location.href = "index.html";
+}
+// start sign out
+signOutButton.onclick = function () {
+  sessionStorage.setItem("userActive", "false");
+  location.href = "index.html";
+};
+
 
 
 //Save report about the information related to the user tests
-var userTestInfo;
-if (localStorage.getItem(`userTestReportID${sessionStorage.getItem("userID")}`) != null){
-  userTestInfo=JSON.parse(localStorage.getItem(`userTestReportID${sessionStorage.getItem("userID")}`));
-}else{
-  userTestInfo={
-    userID:sessionStorage.getItem("userID"),
-    username:sessionStorage.getItem("username"),
-    userFinishEnglishTest:null,
-    userEnglishTestScore:null,
-    userEnglishAnswers:[],
-    userFinishMathTest:null,
-    userMathTestScore:null,
-    userMathAnswers:[]
-  }
-  console.log(userTestInfo)
-}
-localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
+var allUserTestInfo=JSON.parse(localStorage.getItem("userData"));
+var userTestInfo=allUserTestInfo[parseInt(sessionStorage.getItem("userID"))-1];
 
 //changeSignOutIcon(): Change the content of the buttons to icons when the screen width is below 576 pixels.
 function changeSignOutIcon(){
@@ -320,8 +316,8 @@ function chooseAnswer(button){
     index = parseInt(button.parentNode.parentNode.id);
     userAnswers[index]=button.value;
     userTestInfo["userEnglishAnswers"]=userAnswers;
-    localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
-    
+    localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
+
 }
 
 //getQuestion: display the question with options for the user to choose between.
@@ -395,7 +391,7 @@ startButton.addEventListener("click",function(){
     window.onbeforeunload = function () {
       userTestInfo["userEnglishTestScore"]=0;
       userTestInfo["userFinishEnglishTest"]=true;
-      localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
+      localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
 
       return "leave";
     }
@@ -509,7 +505,7 @@ function finish(){
     }
     userTestInfo["userEnglishTestScore"]=score;
     userTestInfo["userFinishEnglishTest"]=true;
-    localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
+    localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
   }
 
 
