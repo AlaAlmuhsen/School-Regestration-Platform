@@ -18,7 +18,6 @@ function checkCharMoreThan10(strValue){
     var savedData = localStorage.getItem("userData");
     var parsedData = JSON.parse(savedData);
 
-
     let user = [];
     let userData = {};
     let lastUserID=0;
@@ -29,35 +28,44 @@ function checkCharMoreThan10(strValue){
      lastUserID = lastObject.userId;
   }
 
-
     console.log(user);
     console.log(lastUserID);
-
 
     let email = document.getElementById('txtSignupEmail').value.trim();
     let username = document.getElementById('txtSignupUsername').value.trim();
     let password = document.getElementById('txtSignupPassword').value.trim();
     let userId=lastUserID+1;
+
+    let userFinishEnglishTest=false;
+    let userEnglishTestScore=0;
+    let userEnglishAnswers=[];
+
+    let userFinishMathTest=false;
+    let userMathTestScore=0;
+    let userMathAnswers=[];
+
+    let userForm=[];
+
+
     userData.email = email;
     userData.username = username;
     userData.password = password;
     userData.userId = userId;
+    userData.userFinishEnglishTest = userFinishEnglishTest;
+    userData.userEnglishTestScore = userEnglishTestScore;
+    userData.userEnglishAnswers = userEnglishAnswers;
+    userData.userFinishMathTest = userFinishMathTest;
+    userData.userMathTestScore = userMathTestScore;
+    userData.userMathAnswers = userMathAnswers;
+    userData.userForm = userForm;
 
 
+    user.push(userData);
+    localStorage.setItem("userData", JSON.stringify(user));
 
-user.push(userData);
-localStorage.setItem("userData", JSON.stringify(user));
-
-// console.log(user);
-window.location.href = "signin.html";
- }
-  
-
-
-
-
-
-
+    // console.log(user);
+    window.location.href = "signin.html";
+   }
 
 
   function checkUsernameAndPassword(){
@@ -70,8 +78,8 @@ window.location.href = "signin.html";
     let profileUsername='';
     let usernameID='';
 
-var emailInput = document.getElementById("txtEmail").value.trim();
-var passwordInput =  document.getElementById("txtPassword").value.trim();
+    var emailInput = document.getElementById("txtEmail").value.trim();
+    var passwordInput =  document.getElementById("txtPassword").value.trim();
 
 // Flag to indicate if the username and password match
 var matchFound = false;
