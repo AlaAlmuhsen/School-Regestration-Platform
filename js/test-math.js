@@ -3,6 +3,26 @@ let testContainer=document.querySelector(".test__container");
 let timerContainer=document.querySelector(".timer__container");
 let startButton=document.getElementById("start-button");
 
+//Save report about the information related to the user tests
+let userTestInfo;
+if (localStorage.getItem(`userTestReportID${sessionStorage.getItem("userID")}`) != null){
+  userTestInfo=JSON.parse(localStorage.getItem(`userTestReportID${sessionStorage.getItem("userID")}`));
+  console.log(userTestInfo)
+}else{
+  userTestInfo={
+    userID:sessionStorage.getItem("userID"),
+    username:sessionStorage.getItem("username"),
+    userFinishEnglishTest:null,
+    userEnglishTestScore:null,
+    userEnglishAnswers:[],
+    userFinishMathTest:null,
+    userMathTestScore:null,
+    userMathAnswers:[]
+  }
+  console.log(userTestInfo)
+}
+localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
+
 //changeSignOutIcon(): Change the content of the buttons to icons when the screen width is below 576 pixels.
 function changeSignOutIcon(){
     if (screen.width < 576){
@@ -39,12 +59,12 @@ window.addEventListener("resize", function(){
     {
       question: "If you have 10 cookies and you eat 3, how many cookies do you have left?",
       options: ["4", "6", "7", "10"],
-      answer: 1
+      answer: 2
     },
     {
       question: "Which number comes next in the sequence: 1, 3, 5, 7, __?",
       options: ["8", "9", "10", "11"],
-      answer: 3
+      answer: 1
     },
     {
       question: "How many inches are in a foot?",
@@ -84,7 +104,7 @@ window.addEventListener("resize", function(){
     {
       question: "If you have 8 apples and you give away 3, how many apples do you have left?",
       options: ["2", "3", "5", "8"],
-      answer: 3
+      answer: 2
     },
     {
       question: "What is the value of 7 + 3 x 2?",
@@ -94,7 +114,7 @@ window.addEventListener("resize", function(){
     {
       question: "Which number comes next in the sequence: 2, 4, 6, 8, __?",
       options: ["10", "11", "12", "14"],
-      answer: 3
+      answer: 0
     },
     {
       question: "How many days are there in a week?",
@@ -114,7 +134,7 @@ window.addEventListener("resize", function(){
     {
       question: "What is the result of 12 divided by 4?",
       options: ["2", "3", "4", "6"],
-      answer: 2
+      answer: 1
     },
     {
       question: "Which number is larger: 25 or 15?",
@@ -124,7 +144,7 @@ window.addEventListener("resize", function(){
     {
       question: "What is the value of 8 - 3 x 2?",
       options: ["2", "5", "8", "10"],
-      answer: 1
+      answer: 0
     },
     {
       question: "How many months are in a year?",
@@ -194,8 +214,9 @@ userMathAnswers=[]
 function chooseAnswer(button){
     index = parseInt(button.parentNode.parentNode.id);
     userMathAnswers[index]=button.value;
-    localStorage.setItem("userMathAnswers",userMathAnswers);
-    console.log(button.value)
+    userTestInfo["userMathAnswers"]=userMathAnswers;
+    localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
+    
 }
 
 //getQuestion: display the question with options for the user to choose between.
@@ -263,11 +284,12 @@ questions=shuffleArray(questions).slice(0,10);
 //startButton: Starts the quiz.
 startButton.addEventListener("click",function(){
     window.onbeforeunload = function () {
-      localStorage.setItem("userMathScore",0);
-      localStorage.setItem("userFinishMathTest",true);
+      userTestInfo["userMathTestScore"]=0;
+      userTestInfo["userFinishMathTest"]=true;
+      localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
       return "leave";
     }
-    if(localStorage.getItem("userFinishMathTest")){
+    if(userTestInfo["userFinishMathTest"]==true){
       finish();
     }else{
 
@@ -281,7 +303,6 @@ startButton.addEventListener("click",function(){
         if (seconds!=0){
             // seconds--
             Timer=seconds-parseInt((endTestTime-startTestTime)/1000)
-            console.log(Timer)
             let minutes=Math.floor(Timer/60)
             let remainingSeconds=Timer%60 
             timerContainer.innerHTML=`<div class="timer rounded mx-auto p-1">${minutes.toString()}:${remainingSeconds.toString().padStart(2,'0')}</div>`
@@ -364,26 +385,30 @@ function finish(){
     score=0
 
     
-    if(!localStorage.getItem("userFinishMathTest") ){
-    let answers=localStorage.getItem("userMathAnswers").split(",");
+    if(userTestInfo["userFinishMathTest"]!=true){
+    let answers=userTestInfo["userMathAnswers"];
     for(let i in answers){
         if(answers[i]==questions[i].options[questions[i].answer]){
             score++
         }
 
     }
-    localStorage.setItem("userMathScore", score)
-    localStorage.setItem("userFinishMathTest",true);
+    userTestInfo["userMathTestScore"]=score;
+    userTestInfo["userFinishMathTest"]=true;
+    localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
   }
 
     testContainer.innerHTML=`<div class="question__container container-fluid mt-1 px-5">
-    <h2 class="text-center pb-5 pt-3 text-white">You scored ${localStorage.getItem("userMathScore")} out of 10</h2>
+    <h2 class="text-center pb-5 pt-3 text-white">You scored ${userTestInfo["userMathTestScore"]} out of 10</h2>
 </div>
 <div class="rtn__button__container d-flex w-100 justify-content-center">
-<a href="index.html"><button class="return__button my-3" id="start-button">RETURN</button></a>
+<a href="student-dashboard.html"><button class="return__button my-3" id="start-button">RETURN</button></a>
 </div>`;
 let main=document.getElementById("main");
 main.removeChild(main.children[1]);
+
+
+
 }
 //displayQuestion (called by the question navigator): Display the question to the user based on the number chosen.
 function displayQuestion(button){
