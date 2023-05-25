@@ -7,7 +7,7 @@ var submit = document.getElementById("submit");
 var counter = 0 ;
 
 //check if user is signed in 
-if(sessionStorage.getItem("userActive") === null )
+if(sessionStorage.getItem("userActive") == null || sessionStorage.getItem("userActive") == false)
 {
 location.href = "index.html";
 }
@@ -36,8 +36,8 @@ done_img3.style.marginLeft = "22%";
 // ----------------------------------------------------
 // start sign out
 signout.onclick = function () {
+  sessionStorage.setItem("userActive", "false");
   location.href = "index.html";
-  sessionStorage.clear();
 };
 
 
