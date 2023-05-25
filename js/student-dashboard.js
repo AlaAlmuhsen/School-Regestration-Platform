@@ -63,6 +63,9 @@ window.addEventListener("resize", function () {
 // form1.after(done_img1);
 
 //Is there a score in local storage
+
+
+//Muhammad Alfreijat-----Now user can enter both tests based on userFinishEnglishTest and userFinishMathTest values------------------------------------
 var allUserTestInfo=JSON.parse(localStorage.getItem("userData"));
 var userTestInfo=allUserTestInfo[parseInt(sessionStorage.getItem("userID"))-1];
 
