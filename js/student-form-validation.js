@@ -6,18 +6,7 @@ document.getElementById("birthday").max = currentDate;
 
   // Check if the form has already been submitted
   if (localStorage.getItem("formSubmitted") === "true") {
-    const form = document.querySelector(".needs-validation");
-    let info = document.querySelector(".info");
-    info.style.display = "none";
-    form.innerHTML = `
-      <h1 style="color: green; text-align: center;">Form Already Submitted. Thank You!</h1>
-      <div class="rtn__button__container d-flex w-100 justify-content-center">
-        <a href="student-dashboard.html">
-          <button class="return__button my-3">RETURN</button>
-        </a>
-      </div>
-    `;
-    
+    window.location.href = "student-dashboard.html";
   }
 
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -49,20 +38,7 @@ document.getElementById("birthday").max = currentDate;
           // Mark the form as submitted
           localStorage.setItem("formSubmitted", "true");
 
-          form.innerHTML = `
-            <h1 style="color: green; text-align: center;">Form Submitted. Thank You!</h1>
-            <div class="rtn__button__container d-flex w-100 justify-content-center">
-              <a href="student-dashboard.html">
-                <button class="return__button my-3">RETURN</button>
-              </a>
-            </div>
-          `;
-          let info = document.querySelector(".info");
-          info.style.display = "none";
-          const returnButton = document.querySelector(".return__button");
-          returnButton.addEventListener("click", function () {
-            window.location.href = "student-dashboard.html";
-          });
+          window.location.href = "student-dashboard.html";
         }
 
         form.classList.add("was-validated");
