@@ -2,12 +2,25 @@
   --main-color: #ff6551;
   --second-color: #b5b5b5;
   --third-color: #f1efef;
+  --fourth-color: white;
+  --fifth-color: black;
+
+  /* --second-color: #555555;
+--third-color: #333333;
+--fourth-color: #1a1a1a;
+--fifth-color: #f1efef; */
 }
+
 * {
+  /* background-color: var(--fourth-color); */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--fourth-color);
 }
 
 /* Start Main Page */
@@ -82,12 +95,12 @@ main .main-text p {
   margin: 30px 0px;
   color: gray;
 }
-main .main-text button{
-    background-color: var(--main-color);
-    color: white;
-    border: none;
-    padding: 15px 50px;
-    border-radius: 4px;
+main .main-text button {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 4px;
 }
 @media (max-width: 767px) {
   main .main-text {
@@ -97,11 +110,9 @@ main .main-text button{
 }
 /* End Main Page */
 
-
 /*Header*/
-header .header__container div .EnglishTest__Logo{
-    width: 90%;
-    
+header .header__container div .EnglishTest__Logo {
+  width: 90%;
 }
 
 .signup__container {
@@ -127,19 +138,17 @@ header .header__container div .EnglishTest__Logo{
 }
 /*Header*/
 /* Start signin Page */
-.signin-btn{
-    background-color: var(--main-color);
-    border: none;
+.signin-btn {
+  background-color: var(--main-color);
+  border: none;
 }
 
-.signin-btn:hover{
-    background-color: var(--second-color);
-
+.signin-btn:hover {
+  background-color: var(--second-color);
 }
 
-.signin-btn:click{
-    background-color: var(--second-color);
-
+.signin-btn:click {
+  background-color: var(--second-color);
 }
 /* End signin Page */
 
@@ -148,11 +157,11 @@ header .header__container div .EnglishTest__Logo{
 
 /* Start E-test Page */
 
-.timer__container .timer{
-    color: var(--main-color);
-    font-weight: bold;
-    border: 1px solid var(--main-color);
-    margin-top: -1%;
+.timer__container .timer {
+  color: var(--main-color);
+  font-weight: bold;
+  border: 1px solid var(--main-color);
+  margin-top: -1%;
 }
 .test__title h2 {
   color: var(--main-color);
@@ -218,10 +227,9 @@ header .header__container div .EnglishTest__Logo{
   width: 150px;
   height: 50px;
 }
-a .return__button{
-    text-decoration: none;
-    color: white;
-    
+a .return__button {
+  text-decoration: none;
+  color: white;
 }
 .start__button:hover {
   background-color: var(--second-color);
@@ -479,9 +487,61 @@ a .return__button{
 /* End student-form Page */
 
 /* Start student  Dashboard Page */
+
+/* start nav */
+body > header > .row > .horizontal__line > hr {
+    border: 1px solid var(--second-color);
+}
+
+/* dark mode toggle */
+/* body > header > label{
+    margin-right: 5vh;
+    position: relative;
+    width: 8vh;
+    height: 4vh;
+    display: block;
+    background: #d9d9d9;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.3), inset 0px -5px 15px rgba(255,255,255,0.3);
+  }
+  label:after{
+    content: '';
+    position: absolute;
+    height: 3vh;
+    width: 3vh;
+    background: #f2f2f2;
+    border-radius: 100px;
+    top: 4px;
+    left: 6px;
+    transition: 0.5s;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+  input:checked ~ label:after{
+    left: 50px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg,#777,#3a3a3a);
+  }
+  input:checked ~ label{
+    background: #242424;
+  }
+
+  input:checked + label + .background{
+    background: #242424;
+  }
+  input{
+    display: none;
+  } */
+  /* end of dark mode toggle */
+/* end nav */
+body > div > h2 {
+  color: var(--fifth-color);
+}
+
 body > header > div > button > a {
-    color: white;
-    text-decoration: none;
+ /* white */
+  color: var(--fourth-color);
+  text-decoration: none;
 }
 body > .titles {
   margin-top: 3%;
@@ -489,18 +549,27 @@ body > .titles {
 }
 
 body > h3 {
-    margin-top: 3%;
-    margin-left: 11%;
-    color:var(--main-color);
+  margin-top: 3%;
+  margin-left: 11%;
+  color: var(--main-color);
 }
 
 body > div > #description {
   color: var(--second-color);
 }
 
-body > div > div > div > img{
-    width: 38%;
-    height: 37%;
+body > .three_cards > div > div {
+  color: var(--fifth-color);
+  border-bottom-color: var(--second-color);
+}
+
+body > div > div > div > h5 {
+  color: var(--fifth-color);
+}
+
+body > div > div > div > img {
+  width: 38%;
+  height: 37%;
 }
 
 body > div > div > div > .card_description {
@@ -508,25 +577,32 @@ body > div > div > div > .card_description {
   font-size: small;
 }
 
-body > div > div > div > hr{
-    width: 20%;
-    border-top: 4px solid;
-    border-color: var(--main-color);
+body > div > div > div > hr {
+  width: 20%;
+  border-top: 4px solid;
+  border-color: var(--main-color);
 }
 
-body > #submit{
-    background-color: var(--second-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    margin-top: 0%;
-    margin-left: 47%;
-    margin-bottom: 5%;
+body > #submit {
+  cursor: default;
+  background-color: var(--second-color);
+  color: var(--fourth-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: 0%;
+  margin-left: 47%;
+  margin-bottom: 5%;
 }
 
+/* each card */
 body > .three_cards > div {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  border-style: solid; 
+  border-color: var(--third-color);
+  box-shadow: var(--second-color) 0px 3px 8px;
+  background-color: var(--fourth-color);
+  cursor: pointer;
 }
 
 /* tablet */
@@ -538,7 +614,8 @@ body > .three_cards > div {
     margin-left: 8%;
   }
 
-  body > .three_cards > div > div > #form {
+  /* form image and done image */
+  body > .three_cards > div > div > img {
     height: min-content;
   }
 
@@ -580,37 +657,42 @@ body > .three_cards > div {
 /* End student  Dashboard Page */
 
 /*Start Footer*/
+body > footer {
+  background-color: var(--fourth-color);
+  color: var(--fifth-color);
+}
+
 body > footer > section > div > div > div > p > i {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 
 body > footer > section > div > div > div > p > a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 body > footer > section > div > div > div > p > a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 body > footer > section > div > div > div > p > a > i {
-    text-decoration: none;
-    color: var(--main-color);
+  text-decoration: none;
+  color: var(--main-color);
 }
 
 body > footer > section > div > div > div > i {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 
-body > footer > section > div > div > div > a{
-    color: var(--main-color);
+body > footer > section > div > div > div > a {
+  color: var(--main-color);
 }
 
-body> footer > div{
-    background-color: var(--third-color)
+body > footer > div {
+  background-color: var(--third-color);
 }
 
-body > footer > hr{
-    background-color: var(--third-color)
+body > footer > hr {
+  background-color: var(--third-color);
 }
 /*end Footer*/
 

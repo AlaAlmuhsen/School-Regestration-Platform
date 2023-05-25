@@ -3,6 +3,27 @@ let testContainer=document.querySelector(".test__container");
 let timerContainer=document.querySelector(".timer__container");
 let startButton=document.getElementById("start-button");
 
+
+
+//Save report about the information related to the user tests
+var userTestInfo;
+if (localStorage.getItem(`userTestReportID${sessionStorage.getItem("userID")}`) != null){
+  userTestInfo=JSON.parse(localStorage.getItem(`userTestReportID${sessionStorage.getItem("userID")}`));
+}else{
+  userTestInfo={
+    userID:sessionStorage.getItem("userID"),
+    username:sessionStorage.getItem("username"),
+    userFinishEnglishTest:null,
+    userEnglishTestScore:null,
+    userEnglishAnswers:[],
+    userFinishMathTest:null,
+    userMathTestScore:null,
+    userMathAnswers:[]
+  }
+  console.log(userTestInfo)
+}
+localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
+
 //changeSignOutIcon(): Change the content of the buttons to icons when the screen width is below 576 pixels.
 function changeSignOutIcon(){
     if (screen.width < 576){
@@ -298,8 +319,9 @@ userAnswers=[]
 function chooseAnswer(button){
     index = parseInt(button.parentNode.parentNode.id);
     userAnswers[index]=button.value;
-    localStorage.setItem("userAnswers",userAnswers);
-    console.log(button.value)
+    userTestInfo["userEnglishAnswers"]=userAnswers;
+    localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
+    
 }
 
 //getQuestion: display the question with options for the user to choose between.
@@ -371,11 +393,13 @@ questions=shuffleArray(questions).slice(0,15);
 //startButton: Starts the quiz.
 startButton.addEventListener("click",function(){
     window.onbeforeunload = function () {
-      localStorage.setItem("userScore",0);
-      localStorage.setItem("userFinishEnglishTest",true);
+      userTestInfo["userEnglishTestScore"]=0;
+      userTestInfo["userFinishEnglishTest"]=true;
+      localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
+
       return "leave";
     }
-    if(localStorage.getItem("userFinishEnglishTest")){
+    if(userTestInfo["userFinishEnglishTest"]==true){
       finish();
     }else{
 
@@ -389,7 +413,6 @@ startButton.addEventListener("click",function(){
         if (seconds!=0){
             // seconds--
             Timer=seconds-parseInt((endTestTime-startTestTime)/1000)
-            console.log(Timer)
             let minutes=Math.floor(Timer/60)
             let remainingSeconds=Timer%60 
             timerContainer.innerHTML=`<div class="timer rounded mx-auto p-1">${minutes.toString()}:${remainingSeconds.toString().padStart(2,'0')}</div>`
@@ -476,26 +499,31 @@ function finish(){
     score=0
 
     
-    if(!localStorage.getItem("userFinishEnglishTest") ){
-    let answers=localStorage.getItem("userAnswers").split(",");
+    if(userTestInfo["userFinishEnglishTest"]!=true){
+    let answers=userTestInfo["userEnglishAnswers"];
     for(let i in answers){
         if(answers[i]==questions[i].options[questions[i].answer]){
             score++
         }
 
     }
-    localStorage.setItem("userScore", score)
-    localStorage.setItem("userFinishEnglishTest",true);
+    userTestInfo["userEnglishTestScore"]=score;
+    userTestInfo["userFinishEnglishTest"]=true;
+    localStorage.setItem(`userTestReportID${sessionStorage.getItem("userID")}`,JSON.stringify(userTestInfo));
   }
 
+
     testContainer.innerHTML=`<div class="question__container container-fluid mt-1 px-5">
-    <h2 class="text-center pb-5 pt-3 text-white">You scored ${localStorage.getItem("userScore")} out of 15</h2>
+    <h2 class="text-center pb-5 pt-3 text-white">You scored ${userTestInfo["userEnglishTestScore"]} out of 15</h2>
 </div>
 <div class="rtn__button__container d-flex w-100 justify-content-center">
-<a href="index.html"><button class="return__button my-3" id="start-button">RETURN</button></a>
+<a href="student-dashboard.html"><button class="return__button my-3" id="start-button">RETURN</button></a>
 </div>`;
 let main=document.getElementById("main");
 main.removeChild(main.children[1]);
+
+
+
 }
 //displayQuestion (called by the question navigator): Display the question to the user based on the number chosen.
 function displayQuestion(button){
@@ -503,6 +531,7 @@ function displayQuestion(button){
     getQuestion(questions[button.innerHTML-1]);
 
 }
+
 
 
 

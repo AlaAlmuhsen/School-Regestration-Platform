@@ -22,15 +22,18 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="CSS/style.css" />
-
+    <script defer src="js/student-dashboard.js"></script>
     <title>Dashboard</title>
   </head>
   <body>
     <header class="container-fluid">
       <div class="signup__container d-flex justify-content-end">
-        <button class="signup__button" id="sign_out">
-          <a href="index.html">Sign Out</a>
-        </button>
+        <!-- dark mode button -->
+        <!-- <input type="checkbox" id="dark-mode" />
+        <label for="dark-mode" id="dark-mode-label"></label>
+        <div class="background"></div> -->
+        <!-- end of dark mode  -->
+        <button class="signup__button" id="sign_out">Sign Out</button>
       </div>
       <div class="row header__container mt-5">
         <div class="horizontal__line col-sm-2 col-md-2 col-lg-2 my-auto">
@@ -48,7 +51,7 @@
     </header>
 
     <div class="d-flex flex-column titles">
-      <h2>Welcome Dania Atieh!</h2>
+      <h2>Welcome <span id="username"></span>!</h2>
       <div id="description">
         You have to go through these steps in a specific order.
       </div>
@@ -63,7 +66,7 @@
         <div class="card-header fw-bold ps-4">Step 1:</div>
         <div class="card-body">
           <img id="form1" class="ps-2" src="img/form.png" />
-          
+
           <br /><br />
           <h5 class="card-title p-2">Enter Your Information</h5>
           <hr />
@@ -77,7 +80,7 @@
         <div class="card-header fw-bold ps-4">Step 2:</div>
         <div class="card-body">
           <img id="form2" class="ps-2" src="img/form.png" />
-          
+
           <br /><br />
           <h5 class="card-title p-2">English quiz</h5>
           <hr />
@@ -91,7 +94,7 @@
         <div class="card-header fw-bold ps-4">Step 3:</div>
         <div class="card-body">
           <img id="form3" class="ps-2" src="img/form.png" />
-          
+
           <br /><br />
           <h5 class="card-title p-2">Math quiz</h5>
           <hr />
@@ -106,7 +109,7 @@
     <button id="submit">SUBMIT</button>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-white text-muted">
+    <footer class="text-center text-lg-start">
       <hr class="border-3" />
 
       <!-- Section: Links  -->
@@ -178,7 +181,7 @@
     <!-- Footer -->
   </body>
   <!-- JS Files -->
-  <script src="js/student-dashboard.js"></script>
+
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
