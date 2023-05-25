@@ -1,77 +1,4 @@
 
-// function validateEmail(txtUsername,txtPassword) {
-//   const emailInput = txtUsername;
-//   const emailValue = emailInput.value.trim();
-//   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//   const isNotEmpty = emailValue !== '';
-//   const isValidEmail = emailPattern.test(emailValue);
-//   let emailAlert= document.getElementById("lblEmailAlert");
-//   if (isNotEmpty && isValidEmail) {
-//     validatePasswordEmpty(txtPassword);
-//     emailAlert.innerHTML ='';
-//   } else if(!isNotEmpty) {
-//     emailAlert.innerHTML ='Please Enter Your Email'
-//   }
-//   else if(!isValidEmail){
-//     emailAlert.innerHTML ='Invalid Email Address'
-//   }
-//   else{
-//     emailAlert.innerHTML ='Invalid email address or empty input';
-//     // console.log('');
-
-//   }
-// }
-
-
-// function validatePasswordEmpty(txtPassword){
-//     const passwordInput = txtPassword;
-//     const passwordValue = passwordInput.value.trim();
-//     const isNotEmpty = passwordValue !== '';
-//     let emailAlert= document.getElementById("lblPasswordAlert");
-
-//     if (isNotEmpty) {
-//         emailAlert.innerHTML="";
-
-//         // console.log('Password is valid');
-//         // After Check Every Things
-//       } 
-//       else{
-//         emailAlert.innerHTML="Please Enter Your Password";
-
-//       }
-// }
-
-
-// function checkEmailPasswordInput(){
-
-// }
-
-
-
-// function validateEmail(txtUsername) {
-//     let emailInput = txtUsername;
-//     let emailValue = emailInput.value.trim();
-//     let isNotEmpty = checkinputEmpty(emailValue);
-//     let isValidEmail = ValidEmail(emailValue);
-
-//     let message=0;
-//     // let emailAlert= document.getElementById("lblEmailAlert");
-//     if (isNotEmpty && isValidEmail) {
-//         message=0;
-//     } else if(!isNotEmpty) {
-//         message =1;
-//     }
-//     else if(!isValidEmail){
-//         message =2;
-//     }
-//     else{
-//         message =3;
-//       // console.log('');
-//     }
-//     return message;
-//   }
-
-
 
 function checkinputEmpty(strValue){
     return strValue !== ''
@@ -87,28 +14,41 @@ function checkCharMoreThan10(strValue){
 }
 
  function Adduser(){
+
     var savedData = localStorage.getItem("userData");
     var parsedData = JSON.parse(savedData);
 
 
     let user = [];
     let userData = {};
-
+    let lastUserID=0;
     user.push.apply(user, parsedData);
+
+  if(user.length>0){
+    const lastObject = user[user.length - 1];
+     lastUserID = lastObject.userId;
+  }
+
+
+    console.log(user);
+    console.log(lastUserID);
+
 
     let email = document.getElementById('txtSignupEmail').value.trim();
     let username = document.getElementById('txtSignupUsername').value.trim();
     let password = document.getElementById('txtSignupPassword').value.trim();
-
+    let userId=lastUserID+1;
     userData.email = email;
     userData.username = username;
     userData.password = password;
+    userData.userId = userId;
+
 
 
 user.push(userData);
 localStorage.setItem("userData", JSON.stringify(user));
 
-console.log(user);
+// console.log(user);
 window.location.href = "signin.html";
  }
   
@@ -128,6 +68,7 @@ window.location.href = "signin.html";
     users.push.apply(users, parsedData);
 
     let profileUsername='';
+    let usernameID='';
 
 var emailInput = document.getElementById("txtEmail").value.trim();
 var passwordInput =  document.getElementById("txtPassword").value.trim();
@@ -141,6 +82,7 @@ for (var i = 0; i < users.length; i++) {
   if (userDate.email === emailInput && userDate.password === passwordInput) {
     matchFound = true;
     profileUsername=userDate.username;
+    usernameID=userDate.userId;
     break;
   }
 }
@@ -149,6 +91,8 @@ if (matchFound) {
 
     sessionStorage.setItem("userActive", "True");
     sessionStorage.setItem("username", profileUsername);
+    sessionStorage.setItem("userID", usernameID);
+
     // console.log(sessionStorage.getItem("userActive"));
     // console.log(sessionStorage.getItem("username"));    
     window.location.href = "student-dashboard.html";
@@ -162,3 +106,5 @@ if (matchFound) {
 //   sessionStorage.setItem("userActive", "False");
 //   sessionStorage.getItem("userActive");
 //   sessionStorage.getItem("username");
+//   sessionStorage.getItem("userID");
+
