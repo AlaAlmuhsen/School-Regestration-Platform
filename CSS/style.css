@@ -356,6 +356,7 @@ body > div > div > div > hr{
 }
 
 body > #submit{
+    cursor: default;
     background-color: var(--second-color);
     color: white;
     border: none;
@@ -366,9 +367,10 @@ body > #submit{
     margin-bottom: 5%;
 }
 
+/* each card */
 body > .three_cards > div {
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
+   cursor: pointer;
 }
 
 /* tablet */
@@ -380,10 +382,11 @@ body > .three_cards > div {
     margin-left: 8%;
    }
 
-   body > .three_cards > div > div > #form {
+/* form image and done image */
+   body > .three_cards > div > div > img {
     height:min-content;
    }
-
+  
    body > #submit{
     margin-left:43%
    }
