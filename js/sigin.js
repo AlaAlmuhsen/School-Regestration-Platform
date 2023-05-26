@@ -77,7 +77,9 @@ function checkIsUsernameExists(username) {
     let englishTestQuestion=[];
 
     let userForm=[];
-     let userFormComplete=false;
+    let userFormComplete=false;
+    
+    let regestrationCompleted = false;
 
     userData.email = email;
     userData.username = username;
@@ -91,6 +93,7 @@ function checkIsUsernameExists(username) {
     userData.userMathAnswers = userMathAnswers;
     userData.userForm = userForm;
     userData.userFormComplete = userFormComplete;
+    userData.regestrationCompleted = regestrationCompleted;
     userData.mathTestQuestion = mathTestQuestion;
     userData.englishTestQuestion = englishTestQuestion;
 
@@ -100,7 +103,7 @@ function checkIsUsernameExists(username) {
 
     // console.log(user);
     window.location.href = "signin.html";
-   }
+  }
 
 
   function checkUsernameAndPassword(){

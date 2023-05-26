@@ -324,7 +324,7 @@ function chooseAnswer(button){
 function getQuestion(value){
 //If it's the last question then the next button is converted to finish.
   nextButton=`<button class="next__button btn mt-3" id="next-button" onclick="nextQuestions()">Next</button>`;
-  finishButton=`<button class="finish__button btn mt-3" id="finish-button" onclick="finish()">Finish</button>`;
+  finishButton=`<button class="finish__button btn mt-3" id="finish-button" onclick="startFinishProcess()">Finish</button>`;
   rightButton="";
   if(counter==14){
     rightButton=finishButton;
@@ -520,3 +520,35 @@ function displayQuestion(button){
 
 
 
+
+//confirm finishing the test
+function myConfirmBox(message) {
+    let element = document.createElement("div");
+    element.classList.add("box-background");
+    element.innerHTML = `<div class="box">
+                            ${message}
+                            <div>
+                                <button id="trueButton" class="alert__button yesAnswer">Yes</button> <!-- Set Id for both buttons -->
+                                <button id="falseButton" class="alert__button noAnswer">No</button>
+                            </div>
+                        </div>`;
+    document.body.appendChild(element);
+    return new Promise(function (resolve, reject) {
+        document.getElementById("trueButton").addEventListener("click", function () {
+            resolve(true);
+            finish();
+            document.body.removeChild(element);
+        });
+        document.getElementById("falseButton").addEventListener("click", function () {
+            resolve(false);
+            document.body.removeChild(element);
+        });
+    })
+}
+
+// Using the confirm box
+function startFinishProcess(){
+    myConfirmBox("Are you sure you want to finish this test?").then(response=>{
+        console.log(response); // true or false response from the user
+    })
+}

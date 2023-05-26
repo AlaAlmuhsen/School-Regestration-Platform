@@ -116,7 +116,9 @@ if(userTestInfo["userFinishEnglishTest"] &&
 submit.addEventListener("click" , function () {
   if(userTestInfo["userFinishEnglishTest"] &&
   userTestInfo["userFinishMathTest"] &&
-  userTestInfo["userFormComplete"]){
+  userTestInfo["userFormComplete"])
+  {
+    // userTestInfo.regestrationCompleted = true;
     location.href = "student-result.html";
   }
 })
