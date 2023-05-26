@@ -68,7 +68,9 @@ function checkIsUsernameExists(username) {
     let userMathAnswers=[];
 
     let userForm=[];
-     let userFormComplete=false;
+    let userFormComplete=false;
+    
+    let regestrationCompleted = false;
 
     userData.email = email;
     userData.username = username;
@@ -82,6 +84,7 @@ function checkIsUsernameExists(username) {
     userData.userMathAnswers = userMathAnswers;
     userData.userForm = userForm;
     userData.userFormComplete = userFormComplete;
+    userData.regestrationCompleted = regestrationCompleted;
 
     user.push(userData);
     localStorage.setItem("userData", JSON.stringify(user));
