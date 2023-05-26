@@ -217,6 +217,15 @@ function chooseAnswer(button){
 
 //getQuestion: display the question with options for the user to choose between.
 function getQuestion(value){
+  //If it's the last question then the next button is converted to finish.
+  nextButton=`<button class="next__button btn mt-3" id="next-button" onclick="nextQuestions()">Next</button>`;
+  finishButton=`<button class="finish__button btn mt-3" id="finish-button" onclick="finish()">Finish</button>`;
+  rightButton="";
+  if(counter==9){
+    rightButton=finishButton;
+  }else{
+    rightButton=nextButton;
+  }
     testContainer.innerHTML=`          <div class="question__container container-fluid mt-1 px-5">
     <h3 class="text-center pb-5 pt-3 text-white">Q${counter+1}: ${value.question}</h3>
 </div>
@@ -256,10 +265,10 @@ function getQuestion(value){
             <div class="question__screen" onclick="displayQuestion(this)">10</div>
 
         </div>
-        <button class="next__button btn mt-3" id="next-button" onclick="nextQuestions()">Next</button>
+            ${rightButton}
 
     </div>`;
-
+//<button class="next__button btn mt-3" id="next-button" onclick="nextQuestions()">Next</button>
 //Make sure that the user chosen option is checked when the question is displayed.
 let chosenOption=document.querySelectorAll(".option");
 for(let i of chosenOption){
@@ -276,6 +285,11 @@ questionScreen[counter].style.background="#ff6551";
 questionScreen[counter].style.color="white";
 }
 questions=shuffleArray(questions).slice(0,10);
+allQuestions=[]
+for(let i of questions){
+  allQuestions.push(i.question);
+}
+console.log(allQuestions)
 
 //startButton: Starts the quiz.
 startButton.addEventListener("click",function(){
@@ -294,9 +308,11 @@ startButton.addEventListener("click",function(){
       let startTestTime=new Date().getTime();
       let endTestTime;
     //updateTimer: Start a timer when the quiz is started and force the quiz to finish when it ends.
+    Timer=100;   
     function updateTimer(){
-        endTestTime=new Date().getTime();        
-        if (seconds!=0){
+        endTestTime=new Date().getTime();
+        
+        if (Timer!=0){
             // seconds--
             Timer=seconds-parseInt((endTestTime-startTestTime)/1000)
             let minutes=Math.floor(Timer/60)
@@ -331,31 +347,11 @@ startButton.addEventListener("click",function(){
 })
 
 //nextQuestions(called by the next button): Display the next question for the user as long as it's not the last question.
-//If it's the last question then the next button is converted to finish.
+
 function nextQuestions(){
     if (counter == 9){
         counter++;
-        testContainer.innerHTML=`<div class="question__container container-fluid mt-1 px-5">
-        <h2 class="text-center pb-5 pt-3 text-white">Are you sure you want to finish?</h2>
-    </div>
-    <div class="nav__buttons d-flex justify-content-around flex-wrap my-3 w-75 mx-auto">
-        <button class="previous__button btn mt-3" id="prev-button" onclick="previousQuestions()">Previous</button>
-        <div class="questions__nav col-5 d-flex flex-wrap justify-content-center align-content-center gap-1 mt-4">
-            <div class="question__screen" onclick="displayQuestion(this)">1</div>
-            <div class="question__screen" onclick="displayQuestion(this)">2</div>
-            <div class="question__screen" onclick="displayQuestion(this)">3</div>
-            <div class="question__screen" onclick="displayQuestion(this)">4</div>
-            <div class="question__screen" onclick="displayQuestion(this)">5</div>
-            <div class="question__screen" onclick="displayQuestion(this)">6</div>
-            <div class="question__screen" onclick="displayQuestion(this)">7</div>
-            <div class="question__screen" onclick="displayQuestion(this)">8</div>
-            <div class="question__screen" onclick="displayQuestion(this)">9</div>
-            <div class="question__screen" onclick="displayQuestion(this)">10</div>
-
-        </div>
-        <button class="finish__button btn mt-3" id="finish-button" onclick="finish()">Finish</button>
-
-    </div>`;
+    finishButton=`<button class="finish__button btn mt-3" id="finish-button" onclick="finish()">Finish</button>`
     }else{
         counter++;
 
@@ -389,6 +385,7 @@ function finish(){
         }
 
     }
+    userTestInfo["mathTestQuestions"]=allQuestions
     userTestInfo["userMathTestScore"]=score;
     userTestInfo["userFinishMathTest"]=true;
     localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
