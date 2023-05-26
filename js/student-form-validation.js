@@ -1,11 +1,18 @@
 const currentDate = new Date().toISOString().split("T")[0];
 document.getElementById("birthday").max = currentDate;
+var signout = document.getElementById("sign_out");
+
 if (
   sessionStorage.getItem("userActive") == null ||
   sessionStorage.getItem("userActive") == false
 ) {
   location.href = "index.html";
 }
+signout.onclick = function () {
+  sessionStorage.setItem("userActive", "false");
+  location.href = "index.html";
+};
+
 (() => {
   "use strict";
 
