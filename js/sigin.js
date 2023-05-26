@@ -24,8 +24,14 @@ function checkNoSpace(username) {
 
 function checkIsUsernameExists(username) {
   var savedData = localStorage.getItem("userData");
-  var users = JSON.parse(savedData);
- 
+  //Edited
+  var users;
+  if (savedData!=null)
+  {users = JSON.parse(savedData);}
+  else{
+    users=[]
+  }
+  //Edited
   for (var i = 0; i < users.length; i++) {
     if (users[i].email === username) {
       return true; 
