@@ -13,6 +13,29 @@ function checkCharMoreThan10(strValue){
     return strValue.length >=10
 }
 
+function checkPasswordMatch(pass,confPass){
+  return pass===confPass
+}
+
+function checkNoSpace(username) {
+  var pattern = /^\S+$/; 
+  return pattern.test(username);
+}
+
+function checkIsUsernameExists(username) {
+  var savedData = localStorage.getItem("userData");
+  var users = JSON.parse(savedData);
+ 
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].email === username) {
+      return true; 
+    }
+  }
+  return false; 
+}
+
+
+
  function Adduser(){
 
     var savedData = localStorage.getItem("userData");
@@ -110,6 +133,8 @@ if (matchFound) {
   }
 
 
+
+  
 
 //   sessionStorage.setItem("userActive", "False");
 
