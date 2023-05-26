@@ -150,27 +150,24 @@ header .header__container div .EnglishTest__Logo {
 .signin-btn:click {
   background-color: var(--second-color);
 }
-.input-width{
+.input-width {
   width: 70%;
 }
 
 @media only screen and (max-width: 900px) {
-
-  .input-width{
+  .input-width {
     width: 100%;
   }
-
 }
 
 @media only screen and (max-width: 600px) {
-  .img-mobile{
-      display: none !important;
+  .img-mobile {
+    display: none !important;
   }
 
-  .input-width{
+  .input-width {
     width: 90%;
   }
-
 }
 /* End signin Page */
 
@@ -512,7 +509,7 @@ a .return__button {
 
 /* start nav */
 body > header > .row > .horizontal__line > hr {
-    border: 1px solid var(--second-color);
+  border: 1px solid var(--second-color);
 }
 
 /* dark mode toggle */
@@ -554,14 +551,14 @@ body > header > .row > .horizontal__line > hr {
   input{
     display: none;
   } */
-  /* end of dark mode toggle */
+/* end of dark mode toggle */
 /* end nav */
 body > div > h2 {
   color: var(--fifth-color);
 }
 
 body > header > div > button > a {
- /* white */
+  /* white */
   color: var(--fourth-color);
   text-decoration: none;
 }
@@ -620,7 +617,7 @@ body > #submit {
 /* each card */
 body > .three_cards > div {
   /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
-  border-style: solid; 
+  border-style: solid;
   border-color: var(--third-color);
   box-shadow: var(--second-color) 0px 3px 8px;
   background-color: var(--fourth-color);
@@ -719,4 +716,16 @@ body > footer > hr {
 /*end Footer*/
 
 /* Start result  Dashboard Page */
+.tableth {
+  color: var(--main-color);
+
+}
+#englishresult {
+  color: var(--main-color);
+  text-align: center
+}
+#mathresult {
+  color: var(--main-color);
+  text-align: center
+}
 /* End result  Dashboard Page */
