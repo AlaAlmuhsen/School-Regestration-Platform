@@ -520,3 +520,34 @@ function displayQuestion(button){
 
 
 
+
+//confirm finishing the test
+function myConfirmBox(message) {
+    let element = document.createElement("div");
+    element.classList.add("box-background");
+    element.innerHTML = `<div class="box">
+                            ${message}
+                            <div>
+                                <button id="trueButton" class="alert__button yesAnswer">Yes</button> <!-- Set Id for both buttons -->
+                                <button id="falseButton" class="alert__button noAnswer">No</button>
+                            </div>
+                        </div>`;
+    document.body.appendChild(element);
+    return new Promise(function (resolve, reject) {
+        document.getElementById("trueButton").addEventListener("click", function () {
+            resolve(true);
+            document.body.removeChild(element);
+        });
+        document.getElementById("falseButton").addEventListener("click", function () {
+            resolve(false);
+            document.body.removeChild(element);
+        });
+    })
+}
+
+// Using the confirm box
+document.getElementById("myButton").addEventListener("click", () => {
+    myConfirmBox("Are you sure you want to end the test").then(response=>{
+        console.log(response); // true or false response from the user
+    })
+})
