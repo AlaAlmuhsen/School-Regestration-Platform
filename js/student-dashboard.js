@@ -85,7 +85,8 @@ if (userTestInfo["userFinishMathTest"] === true) {
 
 //redirect to tests and the form
 cards[0].addEventListener("click", function () {
-  location.href = "student-form.html";
+  if (userTestInfo["userFormComplete"] === false)
+    location.href = "student-form.html";
 });
 
 cards[1].addEventListener("click", function () {
@@ -101,7 +102,8 @@ cards[2].addEventListener("click", function () {
 //change color of submit
 if (
   localStorage.getItem("userFinishEnglishTest") === 'true' &&
-  localStorage.getItem("userFinishMathTest") === 'true'
+  localStorage.getItem("userFinishMathTest") === 'true' &&
+  localStorage.getItem("userFormComplete") === 'true' 
 )
 {
   submit.style.cursor = 'pointer';
