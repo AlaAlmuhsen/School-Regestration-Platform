@@ -308,7 +308,7 @@ function shuffleArray(array) {
 
 var counter=0;
 
-seconds=5;
+seconds=20*60;
 userAnswers=[]
 
 //choseAnswer: save the the user answers in an Array(userAnswers).
