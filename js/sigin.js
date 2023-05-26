@@ -24,8 +24,14 @@ function checkNoSpace(username) {
 
 function checkIsUsernameExists(username) {
   var savedData = localStorage.getItem("userData");
-  var users = JSON.parse(savedData);
- 
+  //Edited
+  var users;
+  if (savedData!=null)
+  {users = JSON.parse(savedData);}
+  else{
+    users=[]
+  }
+  //Edited
   for (var i = 0; i < users.length; i++) {
     if (users[i].email === username) {
       return true; 
@@ -67,6 +73,9 @@ function checkIsUsernameExists(username) {
     let userMathTestScore=0;
     let userMathAnswers=[];
 
+    let mathTestQuestion=[];
+    let englishTestQuestion=[];
+
     let userForm=[];
     let userFormComplete=false;
     
@@ -85,13 +94,16 @@ function checkIsUsernameExists(username) {
     userData.userForm = userForm;
     userData.userFormComplete = userFormComplete;
     userData.regestrationCompleted = regestrationCompleted;
+    userData.mathTestQuestion = mathTestQuestion;
+    userData.englishTestQuestion = englishTestQuestion;
+
 
     user.push(userData);
     localStorage.setItem("userData", JSON.stringify(user));
 
     // console.log(user);
     window.location.href = "signin.html";
-   }
+  }
 
 
   function checkUsernameAndPassword(){

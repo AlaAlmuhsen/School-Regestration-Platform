@@ -1,5 +1,17 @@
 const currentDate = new Date().toISOString().split("T")[0];
 document.getElementById("birthday").max = currentDate;
+var signout = document.getElementById("sign_out");
+
+if (
+  sessionStorage.getItem("userActive") == null ||
+  sessionStorage.getItem("userActive") == false
+) {
+  location.href = "index.html";
+}
+signout.onclick = function () {
+  sessionStorage.setItem("userActive", "false");
+  location.href = "index.html";
+};
 
 (() => {
   "use strict";
@@ -33,13 +45,14 @@ document.getElementById("birthday").max = currentDate;
           });
 
           //Save report about the information related to the user tests
-          var allUserTestInfo=JSON.parse(localStorage.getItem("userData"));
-          var userTestInfo=allUserTestInfo[parseInt(sessionStorage.getItem("userID"))-1];
+          var allUserTestInfo = JSON.parse(localStorage.getItem("userData"));
+          var userTestInfo =
+            allUserTestInfo[parseInt(sessionStorage.getItem("userID")) - 1];
           // Store the form data in local storage
           // localStorage.setItem("formData", JSON.stringify(formData));
-          userTestInfo["userForm"]=formData;
-          userTestInfo["userFormComplete"]=true;
-          localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
+          userTestInfo["userForm"] = formData;
+          userTestInfo["userFormComplete"] = true;
+          localStorage.setItem("userData", JSON.stringify(allUserTestInfo));
           // Mark the form as submitted
           // localStorage.setItem("formSubmitted", "true");
 
