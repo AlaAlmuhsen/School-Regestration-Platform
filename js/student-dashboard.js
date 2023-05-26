@@ -69,6 +69,13 @@ window.addEventListener("resize", function () {
 var allUserTestInfo=JSON.parse(localStorage.getItem("userData"));
 var userTestInfo=allUserTestInfo[parseInt(sessionStorage.getItem("userID"))-1];
 
+if (userTestInfo["userFormComplete"] === true) {
+  cards[0].style.cursor = 'default'
+  cards[0].style.border = "solid 1px green";
+  cards[0].style.boxShadow = "0px 3px 8px lightgreen";
+  form1.after(done_img1);
+}
+
 if (userTestInfo["userFinishEnglishTest"] === true) {
   cards[1].style.cursor = 'default'
   cards[1].style.border = "solid 1px green";
@@ -99,14 +106,30 @@ cards[2].addEventListener("click", function () {
     location.href = "test-math.html";
 });
 
-//change color of submit
-if (
-  localStorage.getItem("userFinishEnglishTest") === 'true' &&
-  localStorage.getItem("userFinishMathTest") === 'true' &&
-  localStorage.getItem("userFormComplete") === 'true' 
-)
-{
-  submit.style.cursor = 'pointer';
-  submit.style.backgroundColor = "var(--main-color)";
-  location.href = "student-result.html";
-}
+if(userTestInfo["userFinishEnglishTest"] &&
+  userTestInfo["userFinishMathTest"] &&
+  userTestInfo["userFormComplete"]){
+    submit.style.cursor = 'pointer';
+    submit.style.backgroundColor = "red";
+  }
+
+submit.addEventListener("click" , function () {
+  if(userTestInfo["userFinishEnglishTest"] &&
+  userTestInfo["userFinishMathTest"] &&
+  userTestInfo["userFormComplete"]){
+    location.href = "student-result.html";
+  }
+})
+
+
+// change color of submit
+// if (
+//   localStorage.getItem("userFinishEnglishTest") == 'true' &&
+//   localStorage.getItem("userFinishMathTest") == 'true' &&
+//   localStorage.getItem("userFormComplete") == 'true' 
+// )
+// {
+//   submit.style.cursor = 'pointer';
+//   submit.style.backgroundColor = "var(--main-color)";
+//   location.href = "student-result.html";
+// }

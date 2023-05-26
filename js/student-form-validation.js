@@ -32,11 +32,16 @@ document.getElementById("birthday").max = currentDate;
             formData[field.id] = field.value;
           });
 
-          console.log(formData);
+          //Save report about the information related to the user tests
+          var allUserTestInfo=JSON.parse(localStorage.getItem("userData"));
+          var userTestInfo=allUserTestInfo[parseInt(sessionStorage.getItem("userID"))-1];
           // Store the form data in local storage
-          localStorage.setItem("formData", JSON.stringify(formData));
+          // localStorage.setItem("formData", JSON.stringify(formData));
+          userTestInfo["userForm"]=formData;
+          userTestInfo["userFormComplete"]=true;
+          localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
           // Mark the form as submitted
-          localStorage.setItem("formSubmitted", "true");
+          // localStorage.setItem("formSubmitted", "true");
 
           window.location.href = "student-dashboard.html";
         }
