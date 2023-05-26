@@ -150,6 +150,28 @@ header .header__container div .EnglishTest__Logo {
 .signin-btn:click {
   background-color: var(--second-color);
 }
+.input-width{
+  width: 70%;
+}
+
+@media only screen and (max-width: 900px) {
+
+  .input-width{
+    width: 100%;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .img-mobile{
+      display: none !important;
+  }
+
+  .input-width{
+    width: 90%;
+  }
+
+}
 /* End signin Page */
 
 /* Start signUp Page */
