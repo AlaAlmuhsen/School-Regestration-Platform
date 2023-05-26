@@ -73,6 +73,9 @@ function checkIsUsernameExists(username) {
     let userMathTestScore=0;
     let userMathAnswers=[];
 
+    let mathTestQuestion=[];
+    let englishTestQuestion=[];
+
     let userForm=[];
      let userFormComplete=false;
 
@@ -88,6 +91,9 @@ function checkIsUsernameExists(username) {
     userData.userMathAnswers = userMathAnswers;
     userData.userForm = userForm;
     userData.userFormComplete = userFormComplete;
+    userData.mathTestQuestion = mathTestQuestion;
+    userData.englishTestQuestion = englishTestQuestion;
+
 
     user.push(userData);
     localStorage.setItem("userData", JSON.stringify(user));
