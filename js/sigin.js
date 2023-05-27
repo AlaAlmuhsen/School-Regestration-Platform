@@ -73,8 +73,8 @@ function checkIsUsernameExists(username) {
     let userMathTestScore=0;
     let userMathAnswers=[];
 
-    let mathTestQuestion=[];
-    let englishTestQuestion=[];
+    let mathTestQuestions=[];
+    let englishTestQuestions=[];
 
     let userForm=[];
     let userFormComplete=false;
@@ -94,8 +94,8 @@ function checkIsUsernameExists(username) {
     userData.userForm = userForm;
     userData.userFormComplete = userFormComplete;
     userData.regestrationCompleted = regestrationCompleted;
-    userData.mathTestQuestion = mathTestQuestion;
-    userData.englishTestQuestion = englishTestQuestion;
+    userData.mathTestQuestions = mathTestQuestions;
+    userData.englishTestQuestions = englishTestQuestions;
 
 
     user.push(userData);
@@ -121,32 +121,35 @@ function checkIsUsernameExists(username) {
 
 // Flag to indicate if the username and password match
 var matchFound = false;
-
-// Iterate through the array to check for a match
-for (var i = 0; i < users.length; i++) {
-  var userDate = users[i];
-  if (userDate.email === emailInput && userDate.password === passwordInput) {
-    matchFound = true;
-    profileUsername=userDate.username;
-    usernameID=userDate.userId;
-    break;
-  }
+if (emailInput == "admin@gmail.com" && passwordInput == "admin123"){
+  window.location.href = "admin-dashboard.html";
 }
-// Check if a match was found
-if (matchFound) {
-
-    sessionStorage.setItem("userActive", "True");
-    sessionStorage.setItem("username", profileUsername);
-    sessionStorage.setItem("userID", usernameID);
-
-    // console.log(sessionStorage.getItem("userActive"));
-    // console.log(sessionStorage.getItem("username"));    
-    window.location.href = "student-dashboard.html";
-} else {
-    document.getElementById("lblSignAlert").innerHTML="Username and password do not match.";
-}
+else {
+  // Iterate through the array to check for a match
+  for (var i = 0; i < users.length; i++) {
+    var userDate = users[i];
+    if (userDate.email === emailInput && userDate.password === passwordInput) {
+      matchFound = true;
+      profileUsername=userDate.username;
+      usernameID=userDate.userId;
+      break;
+    }
   }
+  // Check if a match was found
+  if (matchFound) {
 
+      sessionStorage.setItem("userActive", "True");
+      sessionStorage.setItem("username", profileUsername);
+      sessionStorage.setItem("userID", usernameID);
+
+      // console.log(sessionStorage.getItem("userActive"));
+      // console.log(sessionStorage.getItem("username"));    
+      window.location.href = "student-dashboard.html";
+  } else {
+      document.getElementById("lblSignAlert").innerHTML="Username and password do not match.";
+  }
+    }
+}
 
 
   
