@@ -4,6 +4,8 @@
   --third-color: #f1efef;
   --fourth-color: white;
   --fifth-color: black;
+  --sixth-color: #f1efef;
+  --seventh-color: #ffffff;
 }
 
 * {
@@ -184,6 +186,7 @@ header .header__container div .EnglishTest__Logo {
   background-color: var(--main-color);
 }
 .options__container {
+  background-color: var(--seventh-color);
   border: 1px solid var(--second-color);
   margin-top: -30px;
   display: flex;
@@ -197,7 +200,7 @@ header .header__container div .EnglishTest__Logo {
 
 .option__label {
   width: 100%;
-  background-color: var(--third-color);
+  background-color: var(--sixth-color);
   border-radius: 50px;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
@@ -250,7 +253,7 @@ a .return__button {
 }
 
 .question__screen {
-  background-color: var(--third-color);
+  background-color: var(--sixth-color);
   min-width: 25px;
   height: 25px;
   padding-top: 4px;
@@ -842,8 +845,13 @@ body > footer > hr {
 /*end Footer*/
 
 /* Start result  Dashboard Page */
+.table td,
+.table th{
+  color: var(--fifth-color);
+  
+}
 .tableth {
-  color: var(--main-color);
+  color: var(--main-color) !important;
 
 }
 #englishresult {

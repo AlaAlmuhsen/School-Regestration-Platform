@@ -4,24 +4,9 @@ var form1 = document.getElementById("form1");
 var form2 = document.getElementById("form2");
 var form3 = document.getElementById("form3");
 var submit = document.getElementById("submit");
-var dark_mode = document.getElementById("dark-mode");
+
 var counter = 0;
 
-dark_mode.addEventListener('change', function() {
-if (dark_mode.checked == true) {//dark mode
-  document.documentElement.style.setProperty("--second-color", "#919191");
-  document.documentElement.style.setProperty("--third-color", "#333333");
-  document.documentElement.style.setProperty("--fourth-color", "#1a1a1a");
-  document.documentElement.style.setProperty("--fifth-color", "#f1efef");
-}
-if (dark_mode.checked == false) {//light mode
-  document.documentElement.style.setProperty("--second-color", "#b5b5b5");
-  document.documentElement.style.setProperty("--third-color", "#f1efef");
-  document.documentElement.style.setProperty("--fourth-color", "white");
-  document.documentElement.style.setProperty("--fifth-color", "black");
-}
-
-});
 
 //check if user is signed in
 if (
