@@ -137,7 +137,9 @@ submit.addEventListener("click" , function () {
   userTestInfo["userFinishMathTest"] &&
   userTestInfo["userFormComplete"])
   {
-    // userTestInfo.regestrationCompleted = true;
+    userTestInfo.regestrationCompleted = true;
+    // console.log(userTestInfo);
+    localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
     location.href = "student-result.html";
   }
 })

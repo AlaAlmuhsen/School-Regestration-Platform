@@ -859,6 +859,7 @@ body > footer > hr {
 /* start admin  Dashboard*/
 .admin {
   position: relative;
+  background-color: #ededf0;
 }
 .admin .left {
   display: flex;
@@ -877,11 +878,78 @@ body > footer > hr {
 .admin .left p {
   font-weight: 600;
 }
-.admin table,.admin th,.admin td {
-  border:1px solid black;
+.admin .right .cards {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 100px;
+  margin-top: 10px;
+  margin-bottom: 40px;
 }
-.admin table th,
-.admin table td{
+.admin .right .card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  flex: 1;
+  height: 100px;
+}
+.card-header-admin {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+  
+}
+.admin .card-header-admin .icon{
+  background-color: var(--main-color);
+  color: white;
   padding: 10px;
+  border-radius: 50%;
+}
+.admin .card:nth-child(1) .card-header-admin .icon{
+  background-color: red;
+}
+.admin .card:nth-child(2) .card-header-admin .icon{
+  background-color: rgb(7, 228, 7);
+}
+.admin .card:nth-child(3) .card-header-admin .icon{
+  background-color: rgb(217, 240, 8);
+}
+.card-header-admin p {
+  margin: 0;
+}
+.admin .card .number {
+  text-align: center;
+  margin-top: 10px;
+  color: var(--main-color);
+  font-size: 25px;
+  font-weight: bold;
+}
+.admin .right table{
+  width: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.admin .right table th,
+.admin .right table td{
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+.admin .right table th{
+  border: 2px var(--main-color) solid;
+}
+.admin .right table td{
+  border: 1px solid black;
+}
+.admin .right table tr:nth-child(even) {
+  background-color: rgb(240, 240, 240);
+}
+.admin .right table tr .completed {
+  color: rgb(5, 235, 5);
+  font-weight: 600;
+}
+.admin .right table tr .pending {
+  color: rgb(217, 240, 8);
+  font-weight: 600;
 }
 /* end admin  Dashboard*/
