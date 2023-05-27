@@ -59,9 +59,3 @@ function fillTableWithUsersData (user) {
     table.appendChild(tr);
     
 }
-
-/*
-<tr>
-                    
-                </tr>
-*/
