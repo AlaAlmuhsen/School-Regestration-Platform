@@ -1,7 +1,14 @@
 const currentDate = new Date().toISOString().split("T")[0];
 document.getElementById("birthday").max = currentDate;
-var signout = document.getElementById("sign_out");
+let signout = document.getElementById("sign_out");
+//Save report about the information related to the user tests
+var allUserTestInfo = JSON.parse(localStorage.getItem("userData"));
+var userTestInfo =
+  allUserTestInfo[parseInt(sessionStorage.getItem("userID")) - 1];
 
+if (userTestInfo["userFormComplete"] === true) {
+  window.location.href = "student-dashboard.html";
+}
 if (
   sessionStorage.getItem("userActive") == null ||
   sessionStorage.getItem("userActive") == false
@@ -15,11 +22,6 @@ signout.onclick = function () {
 
 (() => {
   "use strict";
-
-  // Check if the form has already been submitted
-  if (localStorage.getItem("formSubmitted") === "true") {
-    window.location.href = "student-dashboard.html";
-  }
 
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll(".needs-validation");
@@ -44,17 +46,11 @@ signout.onclick = function () {
             formData[field.id] = field.value;
           });
 
-          //Save report about the information related to the user tests
-          var allUserTestInfo = JSON.parse(localStorage.getItem("userData"));
-          var userTestInfo =
-            allUserTestInfo[parseInt(sessionStorage.getItem("userID")) - 1];
           // Store the form data in local storage
           // localStorage.setItem("formData", JSON.stringify(formData));
           userTestInfo["userForm"] = formData;
           userTestInfo["userFormComplete"] = true;
           localStorage.setItem("userData", JSON.stringify(allUserTestInfo));
-          // Mark the form as submitted
-          // localStorage.setItem("formSubmitted", "true");
 
           window.location.href = "student-dashboard.html";
         }

@@ -94,76 +94,7 @@
       </symbol>
     </svg>
 
-    <div
-      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
-    >
-      <button
-        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-        id="bd-theme"
-        type="button"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        aria-label="Toggle theme (auto)"
-      >
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-          <use href="#circle-half"></use>
-        </svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul
-        class="dropdown-menu dropdown-menu-end shadow"
-        aria-labelledby="bd-theme-text"
-      >
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="light"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-              <use href="#sun-fill"></use>
-            </svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="dark"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-              <use href="#moon-stars-fill"></use>
-            </svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center active"
-            data-bs-theme-value="auto"
-            aria-pressed="true"
-          >
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-              <use href="#circle-half"></use>
-            </svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </div>
+    
 
     <div class="container">
       <main>
@@ -184,9 +115,9 @@
                     class="form-control"
                     id="firstName"
                     placeholder=""
-                    value=""
                     required
                     pattern=".{3,}" title="Three or more characters"
+                    value="Mohammad"
                   />
                   <div class="invalid-feedback">
                     Valid first name is required And should Be more Than 3 digits.
@@ -200,8 +131,9 @@
                     class="form-control"
                     id="lastName"
                     placeholder=""
-                    value=""
+                    value="Bassam"
                     required
+                    
                     pattern=".{3,}" title="Eight or more characters"
 
                   />
@@ -219,6 +151,7 @@
                     class="form-control"
                     id="Phone"
                     placeholder="0799999999"
+                    value="0799999999"
                     required
                     pattern="07[7-9][0-9]{7}"
                   />
@@ -230,7 +163,7 @@
                 <div class="col-md-12">
                     <label for="grade" class="form-label">Grade </label>
                     <select class="form-select" id="grade" required>
-                    <option value="">Choose...</option>
+                      <option value="">Choose...</option>
 
                             <option value="GradeOne">Grade 1</option>
                             <option value="GradeTwo">Grade 2</option>
@@ -257,7 +190,7 @@
                       class="form-control"
                       id="birthday"
                       required
-                    />
+                      value="2001-12-27"                    />
                     <div class="invalid-feedback">
                       Please enter your birthday.
                     </div>
@@ -323,7 +256,7 @@
                             class="form-control"
                             id="parent-f-Name"
                             placeholder=""
-                            value=""
+                            value="Bassam"
                             required
                             pattern=".{3,}" title="Three or more characters"
 
@@ -340,7 +273,7 @@
                             class="form-control"
                             id="parent-l-Name"
                             placeholder=""
-                            value=""
+                            value="abdelhadi"
                             required
                             pattern=".{3,}" title="Three or more characters"
 
@@ -363,6 +296,7 @@
                             placeholder="0799999999"
                             required
                             pattern="07[7-9][0-9]{7}"
+                            value="0799999999"
                             />
                           <div class="invalid-feedback">
                             Please enter your Phone Number.
@@ -375,6 +309,8 @@
                               type="date"
                               class="form-control"
                               id="parent-birthday"
+                              value="1968-04-06"                   
+
                               required
                             />
                             <div class="invalid-feedback">
@@ -389,7 +325,7 @@
                               class="form-control"
                               id="parent-Address"
                               placeholder=""
-                              value=""
+                              value="Amman-Hikmat Al Safadi"
                               required
                               pattern=".{5,}" title="Three or more characters"
 
@@ -445,7 +381,6 @@
 
 <!-- JS Files -->
 
-<script src="js/student-form-darktheme.js"></script>
 <script src="js/student-form-validation.js"></script>
 
 <script src="js/main.js"></script>
