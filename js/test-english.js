@@ -322,6 +322,16 @@ function chooseAnswer(button){
 
 //getQuestion: display the question with options for the user to choose between.
 function getQuestion(value){
+//If it's the last question then the next button is converted to finish.
+  nextButton=`<button class="next__button btn mt-3" id="next-button" onclick="nextQuestions()">Next</button>`;
+  finishButton=`<button class="finish__button btn mt-3" id="finish-button" onclick="startFinishProcess()">Finish</button>`;
+  rightButton="";
+  if(counter==14){
+    rightButton=finishButton;
+  }else{
+    rightButton=nextButton;
+  }
+
     testContainer.innerHTML=`          <div class="question__container container-fluid mt-1 px-5">
     <h3 class="text-center pb-5 pt-3 text-white">Q${counter+1}: ${value.question}</h3>
 </div>
@@ -365,7 +375,7 @@ function getQuestion(value){
             <div class="question__screen" onclick="displayQuestion(this)">14</div>
             <div class="question__screen" onclick="displayQuestion(this)">15</div>
         </div>
-        <button class="next__button btn mt-3" id="next-button" onclick="nextQuestions()">Next</button>
+        ${rightButton}
 
     </div>`;
 
@@ -385,6 +395,11 @@ questionScreen[counter].style.background="#ff6551";
 questionScreen[counter].style.color="white";
 }
 questions=shuffleArray(questions).slice(0,15);
+allQuestions=[]
+for(let i of questions){
+  allQuestions.push(i.question);
+}
+
 
 //startButton: Starts the quiz.
 startButton.addEventListener("click",function(){
@@ -404,9 +419,11 @@ startButton.addEventListener("click",function(){
       let startTestTime=new Date().getTime();
       let endTestTime;
     //updateTimer: Start a timer when the quiz is started and force the quiz to finish when it ends.
+    Timer=100;
     function updateTimer(){
-        endTestTime=new Date().getTime();        
-        if (seconds!=0){
+        endTestTime=new Date().getTime();
+        
+        if (Timer!=0){
             // seconds--
             Timer=seconds-parseInt((endTestTime-startTestTime)/1000)
             let minutes=Math.floor(Timer/60)
@@ -441,43 +458,14 @@ startButton.addEventListener("click",function(){
 })
 
 //nextQuestions(called by the next button): Display the next question for the user as long as it's not the last question.
-//If it's the last question then the next button is converted to finish.
+
 function nextQuestions(){
     if (counter == 14){
         counter++;
-        testContainer.innerHTML=`<div class="question__container container-fluid mt-1 px-5">
-        <h2 class="text-center pb-5 pt-3 text-white">Are you sure you want to finish?</h2>
-    </div>
-    <div class="nav__buttons d-flex justify-content-around flex-wrap my-3 w-75 mx-auto">
-        <button class="previous__button btn mt-3" id="prev-button" onclick="previousQuestions()">Previous</button>
-        <div class="questions__nav col-5 d-flex flex-wrap justify-content-center align-content-center gap-1 mt-4">
-            <div class="question__screen" onclick="displayQuestion(this)">1</div>
-            <div class="question__screen" onclick="displayQuestion(this)">2</div>
-            <div class="question__screen" onclick="displayQuestion(this)">3</div>
-            <div class="question__screen" onclick="displayQuestion(this)">4</div>
-            <div class="question__screen" onclick="displayQuestion(this)">5</div>
-            <div class="question__screen" onclick="displayQuestion(this)">6</div>
-            <div class="question__screen" onclick="displayQuestion(this)">7</div>
-            <div class="question__screen" onclick="displayQuestion(this)">8</div>
-            <div class="question__screen" onclick="displayQuestion(this)">9</div>
-            <div class="question__screen" onclick="displayQuestion(this)">10</div>
-            <div class="question__screen" onclick="displayQuestion(this)">11</div>
-            <div class="question__screen" onclick="displayQuestion(this)">12</div>
-            <div class="question__screen" onclick="displayQuestion(this)">13</div>
-            <div class="question__screen" onclick="displayQuestion(this)">14</div>
-            <div class="question__screen" onclick="displayQuestion(this)">15</div>
-        </div>
-        <button class="finish__button btn mt-3" id="finish-button" onclick="finish()">Finish</button>
-
-    </div>`;
     }else{
         counter++;
-
         getQuestion(questions[counter])
-
     }
-
-    
 }
 
 //previousQuestions(called by the previous button): Display the previous question for the user as long as it's not the first question.
@@ -503,6 +491,7 @@ function finish(){
         }
 
     }
+    userTestInfo["englishTestQuestions"]=allQuestions
     userTestInfo["userEnglishTestScore"]=score;
     userTestInfo["userFinishEnglishTest"]=true;
     localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
@@ -531,3 +520,35 @@ function displayQuestion(button){
 
 
 
+
+//confirm finishing the test
+function myConfirmBox(message) {
+    let element = document.createElement("div");
+    element.classList.add("box-background");
+    element.innerHTML = `<div class="box">
+                            ${message}
+                            <div>
+                                <button id="trueButton" class="alert__button yesAnswer">Yes</button> <!-- Set Id for both buttons -->
+                                <button id="falseButton" class="alert__button noAnswer">No</button>
+                            </div>
+                        </div>`;
+    document.body.appendChild(element);
+    return new Promise(function (resolve, reject) {
+        document.getElementById("trueButton").addEventListener("click", function () {
+            resolve(true);
+            finish();
+            document.body.removeChild(element);
+        });
+        document.getElementById("falseButton").addEventListener("click", function () {
+            resolve(false);
+            document.body.removeChild(element);
+        });
+    })
+}
+
+// Using the confirm box
+function startFinishProcess(){
+    myConfirmBox("Are you sure you want to finish this test?").then(response=>{
+        console.log(response); // true or false response from the user
+    })
+}

@@ -87,29 +87,30 @@ var allUserTestInfo = JSON.parse(localStorage.getItem("userData"));
 var userTestInfo =
   allUserTestInfo[parseInt(sessionStorage.getItem("userID")) - 1];
 
-// if (userTestInfo["userFinishEnglishTest"] === true) {
-//   cards[1].style.cursor = "default";
-//   cards[1].style.border = "solid 1px green";
-//   cards[1].style.boxShadow = "0px 3px 8px lightgreen";
-//   form2.after(done_img2);
-// }
+if (userTestInfo["userFormComplete"] === true) {
+  cards[0].style.cursor = 'default'
+  cards[0].style.border = "solid 1px green";
+  cards[0].style.boxShadow = "0px 3px 8px lightgreen";
+  form1.after(done_img1);
+}
 
-// if (userTestInfo["userFinishMathTest"] === true) {
-//   cards[2].style.cursor = "default";
-//   cards[2].style.border = "solid 1px green";
-//   cards[2].style.boxShadow = "0px 3px 8px lightgreen";
-//   form3.after(done_img3);
-// }
+if (userTestInfo["userFinishEnglishTest"] === true) {
+  cards[1].style.cursor = 'default'
+  cards[1].style.border = "solid 1px green";
+  cards[1].style.boxShadow = "0px 3px 8px lightgreen";
+  form2.after(done_img2);
+}
 
 // //redirect to tests and the form
 // cards[0].addEventListener("click", function () {
 //   location.href = "student-form.html";
 // });
 
-// cards[1].addEventListener("click", function () {
-//   if (userTestInfo["userFinishEnglishTest"] === false)
-//     location.href = "test-english.html";
-// });
+//redirect to tests and the form
+cards[0].addEventListener("click", function () {
+  if (userTestInfo["userFormComplete"] === false)
+    location.href = "student-form.html";
+});
 
 // cards[2].addEventListener("click", function () {
 //   if (userTestInfo["userFinishMathTest"] === false)
@@ -122,6 +123,36 @@ var userTestInfo =
 //   localStorage.getItem("userFinishMathTest") === "true"
 // ) {
 //   submit.style.cursor = "pointer";
+//   submit.style.backgroundColor = "var(--main-color)";
+//   location.href = "student-result.html";
+// }
+
+if(userTestInfo["userFinishEnglishTest"] &&
+  userTestInfo["userFinishMathTest"] &&
+  userTestInfo["userFormComplete"]){
+    submit.style.cursor = 'pointer';
+    submit.style.backgroundColor = "red";
+  }
+
+submit.addEventListener("click" , function () {
+  if(userTestInfo["userFinishEnglishTest"] &&
+  userTestInfo["userFinishMathTest"] &&
+  userTestInfo["userFormComplete"])
+  {
+    // userTestInfo.regestrationCompleted = true;
+    location.href = "student-result.html";
+  }
+})
+
+
+// change color of submit
+// if (
+//   localStorage.getItem("userFinishEnglishTest") == 'true' &&
+//   localStorage.getItem("userFinishMathTest") == 'true' &&
+//   localStorage.getItem("userFormComplete") == 'true' 
+// )
+// {
+//   submit.style.cursor = 'pointer';
 //   submit.style.backgroundColor = "var(--main-color)";
 //   location.href = "student-result.html";
 // }

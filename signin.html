@@ -17,18 +17,38 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
     <title>sign-in</title>
+
+   
 </head>
 
 <body>
+    <header class="container-fluid">
+   
+        <div class="row header__container mt-5">
+          <div class="horizontal__line col-sm-2 col-md-2 col-lg-2 my-auto">
+            <hr />
+          </div>
+          <div
+            class="img__container col-sm-2 col-md-2 col-lg-1 d-flex justify-content-center"
+          >
+            
 
+            <a href="index.html"> <img class="EnglishTest__Logo" src="img/logo.png" alt="logo" /></a> 
+
+          </div>
+          <div class="horizontal__line col-sm-8 col-md-8 col-lg-9 my-auto">
+            <hr />
+          </div>
+        </div>
+      </header>
     <div class="container">
         <div class="signup-form mt-4">
-            <div class="row" style="height: 700px;">
-                <div class="col-md-6 d-flex align-items-center">
+            <div class="row" >
+                <div class="col-md-6 d-flex align-items-center img-mobile">
                     <img class="img-fluid" src="img/signin-Image.png" alt="">
                 </div>
-                <div class=" col-md-6  d-flex justify-content-center align-items-center">
-                <div >
+                <div class=" col-md-6  d-flex justify-content-center mt-40">
+                <div class="input-width">
                     <div class="row px-3 mb-4">
 
                         <div class="top-part d-flex align-items-center">
@@ -40,10 +60,8 @@
 
                     <div class="row px-3 mb-4">
                         <div class="line">
-                            <small class="text-center">if you don't have an account register you can <a href="signup.html">Register here !</a></small>
-                            <div class="line">
-
-                            </div>
+                            <small class="text-center">Don't have an account ? <a href="signup.html" style="color:var(--main-color)">Sign up here !</a></small>
+                        
                         </div>
                     </div>
 
@@ -60,7 +78,7 @@
                               <input type="password" class="form-control" id="txtPassword" placeholder="Enter Your Password">
                             </div>
                             <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <input type="checkbox" class="form-check-input" id="chkRememberMe">
                               <label class="form-check-label" for="exampleCheck1">Rememebr me</label>
                             </div>
                             <div class="mb-3">

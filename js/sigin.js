@@ -13,6 +13,35 @@ function checkCharMoreThan10(strValue){
     return strValue.length >=10
 }
 
+function checkPasswordMatch(pass,confPass){
+  return pass===confPass
+}
+
+function checkNoSpace(username) {
+  var pattern = /^\S+$/; 
+  return pattern.test(username);
+}
+
+function checkIsUsernameExists(username) {
+  var savedData = localStorage.getItem("userData");
+  //Edited
+  var users;
+  if (savedData!=null)
+  {users = JSON.parse(savedData);}
+  else{
+    users=[]
+  }
+  //Edited
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].email === username) {
+      return true; 
+    }
+  }
+  return false; 
+}
+
+
+
  function Adduser(){
 
     var savedData = localStorage.getItem("userData");
@@ -44,8 +73,13 @@ function checkCharMoreThan10(strValue){
     let userMathTestScore=0;
     let userMathAnswers=[];
 
+    let mathTestQuestion=[];
+    let englishTestQuestion=[];
+
     let userForm=[];
-     let userFormComplete=false;
+    let userFormComplete=false;
+    
+    let regestrationCompleted = false;
 
     userData.email = email;
     userData.username = username;
@@ -59,13 +93,17 @@ function checkCharMoreThan10(strValue){
     userData.userMathAnswers = userMathAnswers;
     userData.userForm = userForm;
     userData.userFormComplete = userFormComplete;
+    userData.regestrationCompleted = regestrationCompleted;
+    userData.mathTestQuestion = mathTestQuestion;
+    userData.englishTestQuestion = englishTestQuestion;
+
 
     user.push(userData);
     localStorage.setItem("userData", JSON.stringify(user));
 
     // console.log(user);
     window.location.href = "signin.html";
-   }
+  }
 
 
   function checkUsernameAndPassword(){
@@ -110,6 +148,8 @@ if (matchFound) {
   }
 
 
+
+  
 
 //   sessionStorage.setItem("userActive", "False");
 
