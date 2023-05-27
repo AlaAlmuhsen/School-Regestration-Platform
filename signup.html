@@ -137,6 +137,7 @@
 
      
 if (checkPassword(passwordValue)) {
+    document.getElementById("lblSignupAlert").innerHTML='';
     if(checkPasswordMatch(passwordValue,passwordReValue)){
             PasswordErorr.innerHTML= '';
             if (checkIsUsernameExists(emailValue)) {
