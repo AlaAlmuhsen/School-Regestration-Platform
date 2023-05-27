@@ -1,7 +1,7 @@
 var allUserTestInfo = JSON.parse(localStorage.getItem("userData"));
 var userTestInfo =
   allUserTestInfo[parseInt(sessionStorage.getItem("userID")) - 1];
-var signout = document.getElementById("sign_out");
+let signout = document.getElementById("sign_out");
 
 if (
   sessionStorage.getItem("userActive") == null ||
@@ -9,11 +9,28 @@ if (
 ) {
   location.href = "index.html";
 }
-
+if (
+  userTestInfo["userFormComplete"] === false &&
+  userTestInfo["userFinishEnglishTest"] === false &&
+  userTestInfo["userFinishMathTest"] === false
+) {
+  location.href = "student-dashboard.html";
+}
+function changeSignOutIcon() {
+  if (screen.width < 576) {
+    signout.innerHTML = `<img style="width: 100%; height: 60%; filter: invert(100%); " src="img/logout.svg" alt="signOut">`;
+  } else {
+    signout.innerHTML = "Sign Out";
+  }
+}
+window.addEventListener("resize", function () {
+  changeSignOutIcon();
+});
 signout.onclick = function () {
   sessionStorage.setItem("userActive", "false");
   location.href = "index.html";
 };
+
 // store the score of english test , Math result
 let englishresult = document.getElementById("englishresult");
 englishresult.innerHTML = `English Score : ${userTestInfo.userEnglishTestScore} / ${userTestInfo.englishTestQuestions.length} `;
@@ -43,7 +60,7 @@ for (let i = 0; i < userTestInfo.englishTestQuestions.length; i++) {
   let answer = document.createElement("td");
   answer.textContent = userTestInfo.userEnglishAnswers[i] || "Not Answered.";
 
-  // Append all the coulumns we create into the row ( tr)
+  // Append  coulumns into the  ( tr)
   row.appendChild(numberQuestion);
   row.appendChild(question);
   row.appendChild(answer);
@@ -54,8 +71,6 @@ for (let i = 0; i < userTestInfo.englishTestQuestions.length; i++) {
 
 // Access the 2nd table
 let tabletwo = document.getElementById("tabletwo");
-
-// Access the table body of 2nd Table
 let tbody_tabletwo = tabletwo.querySelector("tbody");
 
 // Loop through the data and create table rows with question and answer cells for Math test
