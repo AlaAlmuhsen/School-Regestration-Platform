@@ -37,6 +37,7 @@ done_img3.style.marginLeft = "22%";
 // start sign out
 signout.onclick = function () {
   sessionStorage.setItem("userActive", "false");
+  window.sessionStorage.clear();
   location.href = "index.html";
 };
 
