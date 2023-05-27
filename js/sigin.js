@@ -9,6 +9,31 @@ function ValidEmail(strEmail){
    return emailPattern.test(strEmail)
 }
 
+function checkPassword(password) {
+  // Check length
+  if (password.length <= 8) {
+    return false;
+  }
+
+  // Check for at least one number
+  if (!/\d/.test(password)) {
+    return false;
+  }
+
+  // Check for at least one letter
+  if (!/[a-zA-Z]/.test(password)) {
+    return false;
+  }
+
+  // Check for at least one symbol
+  if (!/[!@#$%^&*()\-=_+[\]{}|;:,.<>?]/.test(password)) {
+    return false;
+  }
+
+  // All checks passed
+  return true;
+}
+
 function checkCharMoreThan10(strValue){
     return strValue.length >=10
 }
@@ -57,8 +82,8 @@ function checkIsUsernameExists(username) {
      lastUserID = lastObject.userId;
   }
 
-    console.log(user);
-    console.log(lastUserID);
+    // console.log(user);
+    // console.log(lastUserID);
 
     let email = document.getElementById('txtSignupEmail').value.trim();
     let username = document.getElementById('txtSignupUsername').value.trim();

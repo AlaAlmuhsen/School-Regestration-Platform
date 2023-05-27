@@ -135,7 +135,9 @@
         if(checkinputEmpty(usernameValue) && checkCharMoreThan10(usernameValue)){
         usernameErorr.innerHTML= '';
 
-        if(checkPasswordMatch(passwordValue,passwordReValue)){
+     
+if (checkPassword(passwordValue)) {
+    if(checkPasswordMatch(passwordValue,passwordReValue)){
             PasswordErorr.innerHTML= '';
             if (checkIsUsernameExists(emailValue)) {
                 document.getElementById("lblSignupAlert").innerHTML="Email Address already exists . Please try with another one.";
@@ -150,6 +152,12 @@
             txtSignupPassword.value= '';
             txtSignupPasswordRe.value= '';
         }
+} else {
+
+    document.getElementById("lblSignupAlert").innerHTML="Password should have at least 8 character with number, symbol, small and capital letter.";
+}
+
+     
      
     }
     else if(!checkinputEmpty(usernameValue)){
