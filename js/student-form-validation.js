@@ -1,20 +1,24 @@
 const currentDate = new Date().toISOString().split("T")[0];
 document.getElementById("birthday").max = currentDate;
+
 let signout = document.getElementById("sign_out");
+
 //Save report about the information related to the user tests
 var allUserTestInfo = JSON.parse(localStorage.getItem("userData"));
 var userTestInfo =
   allUserTestInfo[parseInt(sessionStorage.getItem("userID")) - 1];
-
+// check if the user filled the form .
 if (userTestInfo["userFormComplete"] === true) {
   window.location.href = "student-dashboard.html";
 }
+// check if the user log in .
 if (
   sessionStorage.getItem("userActive") == null ||
   sessionStorage.getItem("userActive") == false
 ) {
   location.href = "index.html";
 }
+
 signout.onclick = function () {
   sessionStorage.setItem("userActive", "false");
   location.href = "index.html";
@@ -34,36 +38,30 @@ signout.onclick = function () {
         event.preventDefault();
         event.stopPropagation();
 
-        if (form.checkValidity()) {
-          // Create an object to store the form data
-          const formData = {};
+if (form.checkValidity()) {
 
-          // Get all the form fields
-          const fields = form.querySelectorAll("input, select");
+// Create an object to store the form data
+const formData = {};
 
-          // Loop over the fields and store their values in the formData object
-          Array.from(fields).forEach((field) => {
-            formData[field.id] = field.value;
-          });
+// Get all the form fields
+const fields = form.querySelectorAll("input, select");
 
-          // Store the form data in local storage
-          // localStorage.setItem("formData", JSON.stringify(formData));
-          userTestInfo["userForm"] = formData;
-          userTestInfo["userFormComplete"] = true;
-          localStorage.setItem("userData", JSON.stringify(allUserTestInfo));
+// Loop over the fields and store their values in the formData object
+Array.from(fields).forEach((field) => {
+formData[field.id] = field.value;
+});
 
-          window.location.href = "student-dashboard.html";
-        }
-
-        form.classList.add("was-validated");
-        // Bootstrap Classs -> was-validated
-        // It adds a green checkmark icon next to valid form controls.
-        // It adds a red exclamation mark icon next to invalid form controls.
-        // It applies a green border color to valid form controls.
-        // It applies a red border color to invalid form controls.
-        // It displays validation feedback messages below the form controls.
-      },
-      false
+// Store the form data in local storage
+userTestInfo["userForm"] = formData;
+userTestInfo["userFormComplete"] = true;
+localStorage.setItem("userData", JSON.stringify(allUserTestInfo));
+window.location.href = "student-dashboard.html";
+}
+form.classList.add("was-validated");
+// Bootstrap Classs -> was-validated
+// It displays validation feedback messages below the form controls.
+},
+false
     );
   });
 })();
