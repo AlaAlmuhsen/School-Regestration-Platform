@@ -877,6 +877,8 @@ body > footer > hr {
 }
 .admin .left p {
   font-weight: 600;
+  color: white;
+  text-align: center;
 }
 .admin .right .cards {
   display: flex;

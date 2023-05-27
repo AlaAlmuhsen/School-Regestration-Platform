@@ -122,6 +122,7 @@ function checkIsUsernameExists(username) {
 // Flag to indicate if the username and password match
 var matchFound = false;
 if (emailInput == "admin@gmail.com" && passwordInput == "admin123"){
+  sessionStorage.setItem("adminActive" , "true");
   window.location.href = "admin-dashboard.html";
 }
 else {
@@ -138,7 +139,7 @@ else {
   // Check if a match was found
   if (matchFound) {
 
-      sessionStorage.setItem("userActive", "True");
+      sessionStorage.setItem("userActive", "true");
       sessionStorage.setItem("username", profileUsername);
       sessionStorage.setItem("userID", usernameID);
 

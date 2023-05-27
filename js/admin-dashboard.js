@@ -1,3 +1,13 @@
+if (
+    sessionStorage.getItem("adminActive") == null ||
+    sessionStorage.getItem("adminActive") == "false"
+) {
+    location.href = "index.html";
+}
+
+
+
+
 let numberOfUsers = document.getElementById("number-of-users");
 let numberOfCompleted = document.getElementById("number-of-completed");
 let numberOfPending = document.getElementById("number-of-pending");
