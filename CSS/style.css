@@ -290,6 +290,10 @@ a .return__button {
   background-color: var(--main-color);
   color: white;
 }
+.finish__button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
 .instruction li {
   font-size: medium;
   color: white;
