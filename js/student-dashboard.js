@@ -116,7 +116,7 @@ cards[0].addEventListener("click", function () {
 });
 
 cards[1].addEventListener("click", function () {
-  if (userTestInfo["userFinishMathTest"] === false)
+  if (userTestInfo["userFinishEnglishTest"] === false)
     location.href = "test-english.html";
 });
 cards[2].addEventListener("click", function () {
