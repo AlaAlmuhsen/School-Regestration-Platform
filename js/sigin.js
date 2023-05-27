@@ -73,8 +73,8 @@ function checkIsUsernameExists(username) {
     let userMathTestScore=0;
     let userMathAnswers=[];
 
-    let mathTestQuestion=[];
-    let englishTestQuestion=[];
+    let mathTestQuestions=[];
+    let englishTestQuestions=[];
 
     let userForm=[];
     let userFormComplete=false;
@@ -94,8 +94,8 @@ function checkIsUsernameExists(username) {
     userData.userForm = userForm;
     userData.userFormComplete = userFormComplete;
     userData.regestrationCompleted = regestrationCompleted;
-    userData.mathTestQuestion = mathTestQuestion;
-    userData.englishTestQuestion = englishTestQuestion;
+    userData.mathTestQuestions = mathTestQuestions;
+    userData.englishTestQuestions = englishTestQuestions;
 
 
     user.push(userData);
