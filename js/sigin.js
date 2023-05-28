@@ -89,8 +89,7 @@ function checkIsUsernameExists(username) {
      lastUserID = lastObject.userId;
   }
 
-    // console.log(user);
-    // console.log(lastUserID);
+
 
     let email = document.getElementById('txtSignupEmail').value.trim();
     let username = document.getElementById('txtSignupUsername').value.trim();
@@ -177,23 +176,10 @@ else {
 
       sessionStorage.setItem("userActive", "true");
       sessionStorage.setItem("username", profileUsername);
-      sessionStorage.setItem("userID", usernameID);
-
-      // console.log(sessionStorage.getItem("userActive"));
-      // console.log(sessionStorage.getItem("username"));    
+      sessionStorage.setItem("userID", usernameID);   
       window.location.href = "student-dashboard.html";
   } else {
       document.getElementById("lblSignAlert").innerHTML="Username and password do not match.";
   }
     }
 }
-//end of checkUsernameAndPassword function
-
-  
-
-//   sessionStorage.setItem("userActive", "False");
-
-//   sessionStorage.getItem("userActive");
-//   sessionStorage.getItem("username");
-//   sessionStorage.getItem("userID");
-
