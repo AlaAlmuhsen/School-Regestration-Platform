@@ -93,3 +93,21 @@ for (let i = 0; i < userTestInfo.mathTestQuestions.length; i++) {
   // Append the row to the table body
   tbody_tabletwo.appendChild(row);
 }
+
+let formtable = document.getElementById("Formdata");
+
+// Access the userForm object
+let userFormObject = userTestInfo.userForm;
+
+// Convert the object values to an array
+let userFormArray = Object.values(userFormObject);
+
+let rows = formtable.getElementsByTagName("tr");
+
+for (let i = 0; i < rows.length; i++) {
+  let value = userFormArray[i];
+  let td = document.createElement("td");
+  td.textContent = value;
+  rows[i].appendChild(td);
+}
+
