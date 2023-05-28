@@ -5,8 +5,9 @@
   --fourth-color: white;
   --fifth-color: black;
   --sixth-color: #f1efef;
-  --seventh-color: #ffffff;
+  --seventh-color: white;
 }
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -22,7 +23,6 @@
   width: 18px;
 }
 * {
-  /* background-color: var(--fourth-color); */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
