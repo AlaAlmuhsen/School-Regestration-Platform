@@ -16,7 +16,6 @@
 }
 ::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
-  
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: #ff472f;
@@ -364,7 +363,7 @@ a .return__button {
 
 .box {
   width: 200px;
-  
+
   background: #fff;
   padding: 15px;
   text-align: center;
@@ -388,15 +387,15 @@ a .return__button {
 .alert__button {
   width: 100px;
   border: none;
-border-radius: 5px;
-color: #fff;
-padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px;
 }
 .yesAnswer {
-background: #ff6551;
+  background: #ff6551;
 }
 .noAnswer {
-background: black;
+  background: black;
   color: white;
 }
 
@@ -578,8 +577,8 @@ body > header > .row > .horizontal__line > hr {
 }
 
 /* that contains hr and logo */
-body > header > .header__container{
-    margin-top: 7vh;
+body > header > .header__container {
+  margin-top: 7vh;
 }
 
 /* flex for sign out and toggle */
@@ -591,22 +590,21 @@ body > header > .signup__container {
 /* flex for sign out and toggle */
 /* Mobile  */
 @media (max-width: 767px) {
-    body > header > .header__container{
-        margin-top: 6vh;
-    }
+  body > header > .header__container {
+    margin-top: 6vh;
+  }
 
   body > header > .signup__container {
     display: flex;
     justify-content: space-around;
   }
-
-}/* end of mobile */
+} /* end of mobile */
 
 /* tablet */
 @media (min-width: 768px) and (max-width: 991px) {
-    body > header > .header__container{
-        margin-top: 1vh;
-    }
+  body > header > .header__container {
+    margin-top: 1vh;
+  }
 }
 
 /* dark mode toggle */
@@ -863,21 +861,25 @@ body > footer > hr {
 
 /* Start result  Dashboard Page */
 .table td,
-.table th{
+.table th {
   color: var(--fifth-color);
-  
 }
 .tableth {
   color: var(--main-color) !important;
-
 }
 #englishresult {
   color: var(--main-color);
-  text-align: center
+  text-align: center;
 }
 #mathresult {
   color: var(--main-color);
-  text-align: center
+  text-align: center;
+}
+table {
+  border: 1px solid black;
+}
+legend {
+  color: var(--fifth-color);
 }
 /* End result  Dashboard Page */
 
@@ -924,21 +926,20 @@ body > footer > hr {
   gap: 10px;
   margin-top: 10px;
   align-items: center;
-  
 }
-.admin .card-header-admin .icon{
+.admin .card-header-admin .icon {
   background-color: var(--main-color);
   color: white;
   padding: 10px;
   border-radius: 50%;
 }
-.admin .card:nth-child(1) .card-header-admin .icon{
+.admin .card:nth-child(1) .card-header-admin .icon {
   background-color: red;
 }
-.admin .card:nth-child(2) .card-header-admin .icon{
+.admin .card:nth-child(2) .card-header-admin .icon {
   background-color: rgb(7, 228, 7);
 }
-.admin .card:nth-child(3) .card-header-admin .icon{
+.admin .card:nth-child(3) .card-header-admin .icon {
   background-color: rgb(217, 240, 8);
 }
 .card-header-admin p {
@@ -951,21 +952,21 @@ body > footer > hr {
   font-size: 25px;
   font-weight: bold;
 }
-.admin .right table{
+.admin .right table {
   width: 100%;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .admin .right table th,
-.admin .right table td{
+.admin .right table td {
   border-radius: 5px;
   padding: 5px;
   text-align: center;
 }
-.admin .right table th{
+.admin .right table th {
   border: 2px var(--main-color) solid;
 }
-.admin .right table td{
+.admin .right table td {
   border: 1px solid black;
 }
 .admin .right table tr:nth-child(even) {
