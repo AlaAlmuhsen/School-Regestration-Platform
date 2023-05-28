@@ -16,3 +16,11 @@ sessionStorage.setItem("isLogin", "false");
 
 /* Start infoform Page */
 /* End infoform Page */
+
+/* start loader */
+window.addEventListener("load" , () => {
+    const loader = document.querySelector(".loader");
+
+    loader.classList.add("loader-hidden")
+})
+/* End loader */
