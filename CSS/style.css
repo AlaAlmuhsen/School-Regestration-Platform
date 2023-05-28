@@ -30,6 +30,7 @@
 
 body {
   background-color: var(--fourth-color);
+  position: relative;
 }
 
 /* Start Main Page */
@@ -990,9 +991,6 @@ legend {
 }
 /* end admin  Dashboard*/
 /* start loader*/
-body {
-  position: relative;
-}
 .loader {
   position: fixed;
   z-index: 2;
