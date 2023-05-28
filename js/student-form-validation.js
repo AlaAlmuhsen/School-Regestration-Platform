@@ -49,7 +49,8 @@ const fields = form.querySelectorAll("input, select");
 // Loop over the fields and store their values in the formData object
 Array.from(fields).forEach((field) => {
 formData[field.id] = field.value;
-});
+}
+);
 
 // Store the form data in local storage
 userTestInfo["userForm"] = formData;
