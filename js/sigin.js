@@ -1,14 +1,16 @@
 
-
+//sign in page + sign up page
 function checkinputEmpty(strValue){
     return strValue !== ''
 }
 
+//sign in page + sign up page
 function ValidEmail(strEmail){
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
    return emailPattern.test(strEmail)
 }
 
+//sign up
 function checkPassword(password) {
   // Check length
   if (password.length <= 8) {
@@ -34,6 +36,7 @@ function checkPassword(password) {
   return true;
 }
 
+//sign up page
 function checkCharMoreThan10(strValue){
     return strValue.length >=10
 }
@@ -65,20 +68,24 @@ function checkIsUsernameExists(username) {
   return false; 
 }
 
-
-
+//sign up page
+//adding a new user to local storage after signing up 
+//redirecting to sign in page after adding
  function Adduser(){
 
     var savedData = localStorage.getItem("userData");
-    var parsedData = JSON.parse(savedData);
+    var parsedData = JSON.parse(savedData); //array of objects
 
     let user = [];
-    let userData = {};
+    let userData = {}; //object
     let lastUserID=0;
-    user.push.apply(user, parsedData);
+    // the array is empty, I want to add a new user to old users. ParsedData is array of objects and I want to add it to users array as an element not as an array and push alone adds array to an array, .push.apply adds an element to an array 
 
+    user.push.apply(user, parsedData); //if there is data. user[] becomes array of objects
+
+    //if we are not adding an element for the first time enter the if statement and get the last id (where counting starts from 1) 
   if(user.length>0){
-    const lastObject = user[user.length - 1];
+    const lastObject = user[user.length - 1]; //element = object
      lastUserID = lastObject.userId;
   }
 
@@ -106,6 +113,7 @@ function checkIsUsernameExists(username) {
     
     let regestrationCompleted = false;
 
+    //adding properties to the object
     userData.email = email;
     userData.username = username;
     userData.password = password;
@@ -123,14 +131,17 @@ function checkIsUsernameExists(username) {
     userData.englishTestQuestions = englishTestQuestions;
 
 
-    user.push(userData);
-    localStorage.setItem("userData", JSON.stringify(user));
+    user.push(userData); //push object to array
+    localStorage.setItem("userData", JSON.stringify(user));//array to string
 
     // console.log(user);
     window.location.href = "signin.html";
   }
+// end of Adduser function
 
 
+//sign in page 
+// check if username and password are in localstorage then redirect the user to student-dashboard.html
   function checkUsernameAndPassword(){
     var savedData = localStorage.getItem("userData");
     var parsedData = JSON.parse(savedData);
@@ -153,7 +164,7 @@ if (emailInput == "admin@gmail.com" && passwordInput == "admin123"){
 else {
   // Iterate through the array to check for a match
   for (var i = 0; i < users.length; i++) {
-    var userDate = users[i];
+    var userDate = users[i];//element = object
     if (userDate.email === emailInput && userDate.password === passwordInput) {
       matchFound = true;
       profileUsername=userDate.username;
@@ -176,7 +187,7 @@ else {
   }
     }
 }
-
+//end of checkUsernameAndPassword function
 
   
 
