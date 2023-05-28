@@ -53,19 +53,13 @@ function changeSignOutIcon() {
     signout.innerHTML = "Sign Out";
   }
 }
+
 window.addEventListener("resize", function () {
   changeSignOutIcon();
 });
 //end of sign out
 
 //change color of the card to green
-
-//if()//Is Information filled?
-// cards[0].style.cursor = 'default'
-// cards[0].style.border = "solid 1px green";
-// cards[0].style.boxShadow = "0px 3px 8px lightgreen";
-// form1.after(done_img1);
-
 //Is there a score in local storage
 
 //Muhammad Alfreijat-----Now user can enter both tests based on userFinishEnglishTest and userFinishMathTest values------------------------------------
