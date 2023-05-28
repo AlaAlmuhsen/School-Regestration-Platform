@@ -5,6 +5,12 @@ if (
     location.href = "index.html";
 }
 
+let logOutBtn = document.querySelector(".btn-admin-logout");
+logOutBtn.addEventListener("click" , () => {
+    console.log("aa");
+    sessionStorage.setItem("adminActive" , "false");
+    location.href = "signin.html";
+})
 
 
 
@@ -65,7 +71,5 @@ function fillTableWithUsersData (user) {
         <td class ="${status}">${status}</td>
         <td><button type="button" class="btn btn-primary signin-btn"><i class="fa-regular fa-eye"></i></button></td>
     `;
-    console.log(tr);
     table.appendChild(tr);
-    
 }

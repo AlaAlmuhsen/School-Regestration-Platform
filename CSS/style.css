@@ -5,8 +5,9 @@
   --fourth-color: white;
   --fifth-color: black;
   --sixth-color: #f1efef;
-  --seventh-color: #ffffff;
+  --seventh-color: white;
 }
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -21,7 +22,6 @@
   width: 18px;
 }
 * {
-  /* background-color: var(--fourth-color); */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -30,6 +30,7 @@
 
 body {
   background-color: var(--fourth-color);
+  position: relative;
 }
 
 /* Start Main Page */
@@ -895,6 +896,7 @@ legend {
   background-color: var(--main-color);
   color: var(--fifth-color);
   height: 100vh;
+  position: relative;
   /* position: fixed; */
   padding: 20px;
 }
@@ -906,6 +908,13 @@ legend {
   font-weight: 600;
   color: white;
   text-align: center;
+}
+.btn-admin-logout {
+  background-color: white;
+  color: var(--main-color);
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
 }
 .admin .right .cards {
   display: flex;
@@ -981,3 +990,42 @@ legend {
   font-weight: 600;
 }
 /* end admin  Dashboard*/
+/* start loader*/
+.loader {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--fourth-color);
+  transition: opacity 1s , visibility 1s; 
+}
+.loader-hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+.loader::after {
+  content: "";
+  position: relative;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+  border: 4px  solid;
+  border-radius: 50%;
+  border-color:  grey grey grey grey  ;
+  border-top: 5px solid var(--main-color);
+  animation: loading 1s ease infinite;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+/* end loader*/
