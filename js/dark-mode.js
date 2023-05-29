@@ -1,7 +1,6 @@
 
 
 var dark_mode = document.getElementById("dark-mode");
-dark_mode.checked = true;
 
 dark_mode.addEventListener("change", function () {
   if (dark_mode.checked == true) {
@@ -26,6 +25,7 @@ dark_mode.addEventListener("change", function () {
   }
 });
 
+//to fixate the toggle on the chosen mode when navigating between pages
 window.addEventListener("load", () => {
   if (sessionStorage.getItem("dark-mode") == "true") {
     dark_mode.checked = true;
@@ -34,7 +34,9 @@ window.addEventListener("load", () => {
   }
 });
 
+//to fixate the mode when navigating between pages
 if (sessionStorage.getItem("dark-mode") == "true") {
+  //dark mode
   document.documentElement.style.setProperty("--second-color", "#919191");
   document.documentElement.style.setProperty("--third-color", "#333333");
   document.documentElement.style.setProperty("--fourth-color", "#1a1a1a");
@@ -42,6 +44,7 @@ if (sessionStorage.getItem("dark-mode") == "true") {
   document.documentElement.style.setProperty("--sixth-color", "#f1efef");
   document.documentElement.style.setProperty("--seventh-color", "black");
 } else {
+  //light mode
   document.documentElement.style.setProperty("--second-color", "#b5b5b5");
   document.documentElement.style.setProperty("--third-color", "#f1efef");
   document.documentElement.style.setProperty("--fourth-color", "white");

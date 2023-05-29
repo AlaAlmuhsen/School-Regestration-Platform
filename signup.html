@@ -1,201 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Favicon  -->
     <link rel="shortcut icon" type="image/jpg" href="img/favicon.png" />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <!-- CSS Style Sheet -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="CSS/style.css" />
 
     <title>sign-up</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="loader"></div>
     <header class="container-fluid">
-   
-        <div class="row header__container mt-5">
-          <div class="horizontal__line col-sm-2 col-md-2 col-lg-2 my-auto">
-            <hr />
-          </div>
-          <div
-            class="img__container col-sm-2 col-md-2 col-lg-1 d-flex justify-content-center"
-          >
-            
-
-            <a href="index.html"> <img class="EnglishTest__Logo" src="img/logo.png" alt="logo" /></a> 
-
-          </div>
-          <div class="horizontal__line col-sm-8 col-md-8 col-lg-9 my-auto">
-            <hr />
-          </div>
+      <div class="row header__container mt-5">
+        <div class="horizontal__line col-sm-2 col-md-2 col-lg-2 my-auto">
+          <hr />
         </div>
-      </header>
+        <div
+          class="img__container col-sm-2 col-md-2 col-lg-1 d-flex justify-content-center"
+        >
+          <a href="index.html">
+            <img class="EnglishTest__Logo" src="img/logo.png" alt="logo"
+          /></a>
+        </div>
+        <div class="horizontal__line col-sm-8 col-md-8 col-lg-9 my-auto">
+          <hr />
+        </div>
+      </div>
+    </header>
     <div class="container">
-        <div class="signup-form mt-4">
-            <div class="row">
-                <div class="col-md-6 d-flex align-items-center img-mobile">
-                    <img class="img-fluid" src="img/signupImage.png" alt="">
-                </div>
-                <div class=" col-md-6  d-flex justify-content-center mt-40">
-                <div class="input-width">
-                    <div class="row px-3 mb-4">
-
-                        <div class="top-part d-flex align-items-center">
-                            <div class="text me-3">
-                                <h5>Sign Up</h5>
-                            </div>
-                            <!-- <div class="logo">
+      <div class="signup-form mt-4">
+        <div class="row">
+          <div class="col-md-6 d-flex align-items-center img-mobile">
+            <img class="img-fluid" src="img/signupImage.png" alt="" />
+          </div>
+          <div class="col-md-6 d-flex justify-content-center mt-40">
+            <div class="input-width">
+              <div class="row px-3 mb-4">
+                <div class="top-part d-flex align-items-center">
+                  <div class="text me-3">
+                    <h5>Sign Up</h5>
+                  </div>
+                  <!-- <div class="logo">
                                 <a class="me-3" href="#"><i class="fa-brands fa-facebook-f facebook"></i></a>
                             </div> -->
-                        </div>
-                    </div>
-
-                    <div class="row px-3 mb-4">
-                        <div class="line">
-                            <small class="text-center">Already Registered ? <a href="signin.html" style="color:var(--main-color)">Sign in here !</a></small>
-                        
-                        </div>
-                    </div>
-
-                    <div class="row px-3 mb-4 d-flex align-items-center">
-                        <form>
-                            <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label" >Email address</label>
-                              <span id="lblEmailErorr"></span>
-                              <input type="email" class="form-control" id="txtSignupEmail" aria-describedby="emailHelp" placeholder="Enter Your Email">
-                              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label" >Username</label>
-                                <span id="lblUsernameErorr"></span>
-                                <input type="text" class="form-control" id="txtSignupUsername" placeholder="Enter Your Username">
-                                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-                              </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label" >Password</label>
-                                <span id="lblPasswordErorr"></span>
-                                <input type="password" class="form-control" id="txtSignupPassword" placeholder="Enter Your Password">
-                              </div>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                              <input type="password" class="form-control" id="txtSignupPasswordRe" placeholder="Enter Confirm Password">
-                            </div>
-                            <div class="mb-3">
-                                <label id="lblSignupAlert" style="color:red" ></label>
-                                  </div>
-                            <div class="d-grid gap-2 col mx-auto">
-                                <button class="btn btn-primary rounded-pill signin-btn" id="btnSignup"  type="button">Sign Up</button>
-                              </div>
-                            <!-- <button type="submit" class="btn btn-primary">Login</button> -->
-                          </form>
-                    </div>
                 </div>
+              </div>
 
+              <div class="row px-3 mb-4">
+                <div class="line">
+                  <small class="text-center"
+                    >Already Registered ?
+                    <a href="signin.html" style="color: var(--main-color)"
+                      >Sign in here !</a
+                    ></small
+                  >
                 </div>
+              </div>
+
+              <div class="row px-3 mb-4 d-flex align-items-center">
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      >Email address</label
+                    >
+                    <span id="lblEmailErorr"></span>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="txtSignupEmail"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter Your Email"
+                    />
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      >Username</label
+                    >
+                    <span id="lblUsernameErorr"></span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="txtSignupUsername"
+                      placeholder="Enter Your Username"
+                    />
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label"
+                      >Password</label
+                    >
+                    <span id="lblPasswordErorr"></span>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="txtSignupPassword"
+                      placeholder="Enter Your Password"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label"
+                      >Confirm Password</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="txtSignupPasswordRe"
+                      placeholder="Enter Confirm Password"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label id="lblSignupAlert" style="color: red"></label>
+                  </div>
+                  <div class="d-grid gap-2 col mx-auto">
+                    <button
+                      class="btn btn-primary rounded-pill signin-btn"
+                      id="btnSignup"
+                      type="button"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                  <!-- <button type="submit" class="btn btn-primary">Login</button> -->
+                </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-   <script src="js/sigin.js"></script>
-   <script>
-     let btnSignup=document.getElementById("btnSignup");
-     btnSignup.addEventListener('click',function(){
- 
-    let txtEmail=document.getElementById('txtSignupEmail');
-    let emailValue = txtEmail.value.trim();
-    let emailErorr=document.getElementById('lblEmailErorr');
+    <script src="js/sigin.js"></script>
+    <script>
+      let btnSignup = document.getElementById("btnSignup");
+      btnSignup.addEventListener("click", function () {
+        let txtEmail = document.getElementById("txtSignupEmail");
+        let emailValue = txtEmail.value.trim();
+        let emailErorr = document.getElementById("lblEmailErorr");
 
+        let txtUsername = document.getElementById("txtSignupUsername");
+        let usernameValue = txtUsername.value.trim();
+        let usernameErorr = document.getElementById("lblUsernameErorr");
 
-    let txtUsername=document.getElementById('txtSignupUsername');
-    let usernameValue = txtUsername.value.trim();
-    let usernameErorr=document.getElementById('lblUsernameErorr');
+        let txtSignupPassword = document.getElementById("txtSignupPassword");
+        let passwordValue = txtSignupPassword.value.trim();
 
+        let txtSignupPasswordRe = document.getElementById(
+          "txtSignupPasswordRe"
+        );
+        let passwordReValue = txtSignupPasswordRe.value.trim();
 
-    let txtSignupPassword=document.getElementById('txtSignupPassword');
-    let passwordValue = txtSignupPassword.value.trim();
+        let PasswordErorr = document.getElementById("lblPasswordErorr");
 
-    let txtSignupPasswordRe=document.getElementById('txtSignupPasswordRe');
-    let passwordReValue = txtSignupPasswordRe.value.trim();
+        if (checkinputEmpty(emailValue) && ValidEmail(emailValue)) {
+          emailErorr.innerHTML = "";
+          if (
+            checkinputEmpty(usernameValue) &&
+            checkCharMoreThan10(usernameValue)
+          ) {
+            usernameErorr.innerHTML = "";
 
-    let PasswordErorr=document.getElementById('lblPasswordErorr');
-
-    
-    if(checkinputEmpty(emailValue) && ValidEmail(emailValue)){
-        emailErorr.innerHTML= '';
-        if(checkinputEmpty(usernameValue) && checkCharMoreThan10(usernameValue)){
-        usernameErorr.innerHTML= '';
-
-     
-if (checkPassword(passwordValue)) {
-    document.getElementById("lblSignupAlert").innerHTML='';
-    if(checkPasswordMatch(passwordValue,passwordReValue)){
-            PasswordErorr.innerHTML= '';
-            if (checkIsUsernameExists(emailValue)) {
-                document.getElementById("lblSignupAlert").innerHTML="Email Address already exists . Please try with another one.";
+            if (checkPassword(passwordValue)) {
+              document.getElementById("lblSignupAlert").innerHTML = "";
+              if (checkPasswordMatch(passwordValue, passwordReValue)) {
+                PasswordErorr.innerHTML = "";
+                if (checkIsUsernameExists(emailValue)) {
+                  document.getElementById("lblSignupAlert").innerHTML =
+                    "Email Address already exists . Please try with another one.";
                 } else {
-                    Adduser();
+                  Adduser();
                 }
-       
+              } else {
+                PasswordErorr.innerHTML = "Password is not match";
+                PasswordErorr.style.color = "red";
+                txtSignupPassword.value = "";
+                txtSignupPasswordRe.value = "";
+              }
+            } else {
+              document.getElementById("lblSignupAlert").innerHTML =
+                "Password should have at least 8 character with number, symbol, small and capital letter.";
+            }
+          } else if (!checkinputEmpty(usernameValue)) {
+            usernameErorr.innerHTML = "Please Enter Your Username";
+            usernameErorr.style.color = "red";
+          } else if (!checkCharMoreThan10(usernameValue)) {
+            usernameErorr.innerHTML = "Please Enter More Than 10 char";
+            usernameErorr.style.color = "red";
+          } else {
+            usernameErorr.innerHTML = "Invalid Username or empty input";
+            usernameErorr.style.color = "red";
+          }
+        } else if (!checkinputEmpty(emailValue)) {
+          emailErorr.innerHTML = "Please Enter Your Email";
+          emailErorr.style.color = "red";
+        } else if (!ValidEmail(emailValue)) {
+          emailErorr.innerHTML = "Invalid Email Address";
+          emailErorr.style.color = "red";
+        } else {
+          emailErorr.innerHTML = "Invalid email address or empty input";
+          emailErorr.style.color = "red";
         }
-        else{
-            PasswordErorr.innerHTML= 'Password is not match';
-            PasswordErorr.style.color="red";
-            txtSignupPassword.value= '';
-            txtSignupPasswordRe.value= '';
-        }
-} else {
-
-    document.getElementById("lblSignupAlert").innerHTML="Password should have at least 8 character with number, symbol, small and capital letter.";
-}
-
-     
-     
-    }
-    else if(!checkinputEmpty(usernameValue)){
-        usernameErorr.innerHTML= 'Please Enter Your Username';
-        usernameErorr.style.color="red";
-    }
-    else if(!checkCharMoreThan10(usernameValue)){
-        usernameErorr.innerHTML= 'Please Enter More Than 10 char';
-        usernameErorr.style.color="red";
-    }
-    else{
-        usernameErorr.innerHTML= 'Invalid Username or empty input';
-        usernameErorr.style.color="red";
-    }
-    }
-    else if(!checkinputEmpty(emailValue)){
-        emailErorr.innerHTML= 'Please Enter Your Email';
-        emailErorr.style.color="red";
-    }
-    else if(!ValidEmail(emailValue)){
-        emailErorr.innerHTML= 'Invalid Email Address';
-        emailErorr.style.color="red";
-    }
-    else{
-        emailErorr.innerHTML= 'Invalid email address or empty input';
-        emailErorr.style.color="red";
-    }
-  });
-   </script>
-</body>
-<!-- JS Files -->
-<script src="js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      });
+    </script>
+  </body>
+  <!-- JS Files -->
+  <script src="js/main.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
-<!-- Font Asweome -->
-<script src="https://kit.fontawesome.com/bc3de9fbb5.js" crossorigin="anonymous"></script>
-
+    crossorigin="anonymous"
+  ></script>
+  <script src="js/main.js"></script>
+  <!-- Font Asweome -->
+  <script
+    src="https://kit.fontawesome.com/bc3de9fbb5.js"
+    crossorigin="anonymous"
+  ></script>
 </html>

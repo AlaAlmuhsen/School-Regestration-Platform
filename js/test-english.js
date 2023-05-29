@@ -8,17 +8,18 @@ if(sessionStorage.getItem("userActive") === null )
 {
 location.href = "index.html";
 }
-// start sign out
+
+//actions when signing out
 signOutButton.onclick = function () {
   sessionStorage.setItem("userActive", "false");
   location.href = "index.html";
 };
 
 
-
 //Save report about the information related to the user tests
-var allUserTestInfo=JSON.parse(localStorage.getItem("userData"));
-var userTestInfo=allUserTestInfo[parseInt(sessionStorage.getItem("userID"))-1];
+var allUserTestInfo=JSON.parse(localStorage.getItem("userData"));//array of objects
+var userTestInfo=allUserTestInfo[parseInt(sessionStorage.getItem("userID"))-1];//element = object of the current logged in user
+//any changes on userTestInfo will be altered in allUserTestInfo without pushing(using the push function) in the alterations in the array of objects 
 
 //changeSignOutIcon(): Change the content of the buttons to icons when the screen width is below 576 pixels.
 function changeSignOutIcon(){
@@ -45,7 +46,7 @@ let questions = [
         "He plays tennis every day.",
         "I don't have any money."
       ],
-      answer: 1
+      answer: 1 //index of options array
     },
     {
       question: "Choose the correct form of the verb to complete the sentence: They ________ to the party last night.",
@@ -308,25 +309,24 @@ function shuffleArray(array) {
 
 var counter=0;
 
-seconds=20*60;
+seconds=20*60; //20min
 userAnswers=[]
 
-//choseAnswer: save the the user answers in an Array(userAnswers).
-function chooseAnswer(button){
-    index = parseInt(button.parentNode.parentNode.id);
+//choseAnswer: save the user answers in an Array(userAnswers).
+function chooseAnswer(button){//button refers to radio input that was chosen
+    index = parseInt(button.parentNode.parentNode.id);//get the id of the chosen option
     userAnswers[index]=button.value;
-    userTestInfo["userEnglishAnswers"]=userAnswers;
+    userTestInfo["userEnglishAnswers"] = userAnswers;
     localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
-
 }
 
 //getQuestion: display the question with options for the user to choose between.
-function getQuestion(value){
+function getQuestion(value){ //value is a parameter that is an object that contains answer, options, and the right option
 //If it's the last question then the next button is converted to finish.
   nextButton=`<button class="next__button btn mt-3" id="next-button" onclick="nextQuestions()">Next</button>`;
   finishButton=`<button class="finish__button btn mt-3" id="finish-button" onclick="startFinishProcess()">Finish</button>`;
   rightButton="";
-  if(counter==14){
+  if(counter==14){//counter starts from 0, if last question let the right button finishButton
     rightButton=finishButton;
   }else{
     rightButton=nextButton;
@@ -380,10 +380,11 @@ function getQuestion(value){
     </div>`;
 
 //Make sure that the user chosen option is checked when the question is displayed.
+//when clicking on the circles display the queston with the choosen answer highlighted.
 let chosenOption=document.querySelectorAll(".option");
 for(let i of chosenOption){
   answers=userAnswers;
-  if (answers[counter]==i.value){
+  if (answers[counter]==i.value){//i.value --> all options of the question
     i.checked=true;
   }
 }
@@ -394,6 +395,8 @@ let questionScreen=document.querySelectorAll(".question__screen");
 questionScreen[counter].style.background="#ff6551";
 questionScreen[counter].style.color="white";
 }
+// end of get question function 
+
 questions=shuffleArray(questions).slice(0,15);
 allQuestions=[]
 for(let i of questions){
@@ -403,20 +406,21 @@ for(let i of questions){
 
 //startButton: Starts the quiz.
 startButton.addEventListener("click",function(){
+  //This event allows you to display a message in a confirmation dialog box to inform the user whether he/she wants to stay or leave the current page.
     window.onbeforeunload = function () {
       userTestInfo["userEnglishTestScore"]=0;
       userTestInfo["userFinishEnglishTest"]=true;
       localStorage.setItem("userData",JSON.stringify(allUserTestInfo));
 
-      return "leave";
+      return "leave";//flag, like a comment
     }
     if(userTestInfo["userFinishEnglishTest"]==true){
-      finish();
+      finish();//call function finish()
     }else{
 
     
     getQuestion(questions[0]);
-      let startTestTime=new Date().getTime();
+      let startTestTime=new Date().getTime();//real time 
       let endTestTime;
     //updateTimer: Start a timer when the quiz is started and force the quiz to finish when it ends.
     Timer=100;
@@ -430,11 +434,14 @@ startButton.addEventListener("click",function(){
             let remainingSeconds=Timer%60 
             timerContainer.innerHTML=`<div class="timer rounded mx-auto p-1">${minutes.toString()}:${remainingSeconds.toString().padStart(2,'0')}</div>`
         }else{
-            clearInterval(interval)
+          //when the timer finishes 
+            clearInterval(interval)//stops the timer 
             finish()
         }
         }
-    const interval = setInterval(updateTimer, 1000)
+        //setInterval built-in functions (asynchronous function)
+    const interval = setInterval(updateTimer, 1000)//call updateTimer function every 1 second = 1000 milisecond
+
     function changeNextPrevIcon(){
         let previousButton=document.getElementById("prev-button");
         let nextButton=document.getElementById("next-button");
@@ -445,27 +452,21 @@ startButton.addEventListener("click",function(){
             previousButton.innerHTML="Previous";
             nextButton.innerHTML="Next";
         }
-
-        
-        
     }
+//end of changeNextPrevIcon function
+
     window.addEventListener("resize", function(){
        changeNextPrevIcon()
     });
 
-
   }
-})
+}) //end of startButton click function
 
 //nextQuestions(called by the next button): Display the next question for the user as long as it's not the last question.
 
 function nextQuestions(){
-    if (counter == 14){
-        counter++;
-    }else{
         counter++;
         getQuestion(questions[counter])
-    }
 }
 
 //previousQuestions(called by the previous button): Display the previous question for the user as long as it's not the first question.
@@ -479,14 +480,14 @@ function previousQuestions(){
 
 //finish (called by the finish button or when the timer ends): Display the user score and finish the quiz.
 function finish(){
-  window.onbeforeunload = null;
+  window.onbeforeunload = null;//to turn off the alert window because once it is activated it will not deactivate until I give it a null value
     score=0
 
     
     if(userTestInfo["userFinishEnglishTest"]!=true){
     let answers=userTestInfo["userEnglishAnswers"];
     for(let i in answers){
-        if(answers[i]==questions[i].options[questions[i].answer]){
+        if(answers[i]==questions[i].options[questions[i].answer]){//check questions array to understand
             score++
         }
 
@@ -504,21 +505,18 @@ function finish(){
 <div class="rtn__button__container d-flex w-100 justify-content-center">
 <a href="student-dashboard.html"><button class="return__button my-3" id="start-button">RETURN</button></a>
 </div>`;
+//remove timer when viewing the result. main contains everything and the timer is the second child 
 let main=document.getElementById("main");
 main.removeChild(main.children[1]);
+}// end of finish function
 
-
-
-}
+//the numbered circles 
 //displayQuestion (called by the question navigator): Display the question to the user based on the number chosen.
 function displayQuestion(button){
     counter=button.innerHTML-1;
     getQuestion(questions[button.innerHTML-1]);
 
 }
-
-
-
 
 
 //confirm finishing the test
@@ -533,6 +531,7 @@ function myConfirmBox(message) {
                             </div>
                         </div>`;
     document.body.appendChild(element);
+
     return new Promise(function (resolve, reject) {
         document.getElementById("trueButton").addEventListener("click", function () {
             resolve(true);
@@ -547,6 +546,7 @@ function myConfirmBox(message) {
 }
 
 // Using the confirm box
+//finish button calls startFinishProcess function then the alert box appears then after clicking on yes finish function runs
 function startFinishProcess(){
     myConfirmBox("Are you sure you want to finish this test?").then(response=>{
         console.log(response); // true or false response from the user
